@@ -1,4 +1,56 @@
 .Encabezado{
     display: flex;
     justify-content: space-between;
+<<<<<<< HEAD
+=======
+}
+
+h1{
+    font-variant: small-caps;
+}
+
+img{
+    width: 300px;
+    height: 90%;
+}
+
+.informacion{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    border-style: groove;
+}
+
+.autos{
+    display: flex;
+    justify-content: space-around;
+}
+
+li{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    font-variant: small-caps;
+    border-top: solid;
+}
+fieldset{
+    display: flex;
+    flex-direction: column;
+}
+.dato{
+    width: 35%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+legend {
+  text-align: center;
+>>>>>>> ca07e149d589bcb609a8a6b8a9351049cc8a8fd3
 }
