@@ -39,3 +39,15 @@ footer{
     font-variant: small-caps;
     border-top: solid;
 }
+fieldset{
+    display: flex;
+    flex-direction: column;
+}
+.dato{
+    width: 35%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+legend {
+  text-align: center;
+}
