@@ -1,8 +1,6 @@
 .Encabezado{
     display: flex;
     justify-content: space-between;
-<<<<<<< HEAD
-=======
 }
 
 h1{
@@ -52,8 +50,4 @@ fieldset{
 }
 legend {
   text-align: center;
-<<<<<<< HEAD
->>>>>>> ca07e149d589bcb609a8a6b8a9351049cc8a8fd3
-=======
->>>>>>> ca07e149d589bcb609a8a6b8a9351049cc8a8fd3
 }
