@@ -20,11 +20,23 @@ img{
     justify-content: right;
 
 }
+.informacion{
+    display: flex;
+    border-bottom: solid;
+
+}
 
 aside{
     display: flex;
     flex-direction:column;
     border-style: groove;
+}
+nav{
+    background-color: brown;
+}
+a:hover{
+    padding:5px;
+    background-color: darkblue;
 }
 
 .autos{
