@@ -22,7 +22,7 @@ img{
 
 aside{
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     border-style: groove;
 }
 
