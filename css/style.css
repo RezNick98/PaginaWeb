@@ -11,11 +11,14 @@ img{
     width: 300px;
     height: 90%;
 }
-
-.informacion{
+.left{
+    display:flex;
+    justify-content: left;
+}
+.right{
     display: flex;
-    justify-content: space-between;
-    border-bottom: solid;
+    justify-content: right;
+
 }
 
 aside{
