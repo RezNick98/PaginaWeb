@@ -11,13 +11,10 @@ img{
     width: 300px;
     height: 90%;
 }
-.left{
-    display:flex;
-    justify-content: left;
-}
-.right{
-    display: flex;
-    justify-content: right;
+#btn-enviar{
+    width: 35%;
+    margin-left: 10%;
+    margin-bottom: 2%;
 
 }
 .informacion{
@@ -31,12 +28,8 @@ aside{
     flex-direction:column;
     border-style: groove;
 }
-nav{
-    background-color: brown;
-}
-a:hover{
-    padding:5px;
-    background-color: darkblue;
+.Navegacion-principal{
+    margin-bottom: auto;
 }
 
 .autos{
@@ -49,6 +42,9 @@ li{
     display: flex;
     flex-direction: column;
 }
+a:hover{
+    background-color: red
+}
 
 footer{
     font-variant: small-caps;
@@ -59,6 +55,7 @@ fieldset{
     flex-direction: column;
 }
 .dato{
+    display:flex;
     width: 35%;
     margin-left: 10%;
     margin-bottom: 2%;
