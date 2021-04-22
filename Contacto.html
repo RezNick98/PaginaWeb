@@ -19,14 +19,17 @@
     <main>
         <h2>Contactanos para mas informacion</h2>
         <form>
-            <legend><span>Complete los siguientes datos</span></legend>
-            <label for="nombre">Nombre:</label><input class="dato" type="text" name="Nombre" id="" placeholder="Nombre">
-            <label for="apellido">Apellido:</label><input class="dato" type="text" name="Apellido" id="" placeholder="Apellido">
-            <label for="numero de telefono">Numero de telefono:</label><input class="dato" type="number" name="Numero de telefono" id="" placeholder="Nro telefonico">
-            <label for="email">Correo electronico:</label><input class="dato" type="email" name="correo" id=""placeholder="Email">
-            <label for="consultar-vehiculo">Consulta:</label> <textarea class="dato" name="Consulta" id="" cols="30" rows="10"></textarea>
-            <label for="Captcha" id="Captcha">Cuanto es 4+1?</label> <input class="dato" type="number" name="Captcha" id="" placeholder="Respuesta">
-        </form>
+            <fieldset>
+                <legend><span>Complete los siguientes datos</span></legend>
+                <label for="nombre">Nombre:</label><input class="dato" type="text" name="Nombre" id="" placeholder="Nombre">
+                <label for="apellido">Apellido:</label><input class="dato" type="text" name="Apellido" id="" placeholder="Apellido">
+                <label for="numero de telefono">Numero de telefono:</label><input class="dato" type="number" name="Numero de telefono" id="" placeholder="Nro telefonico">
+                <label for="email">Correo electronico:</label><input class="dato" type="email" name="correo" id=""placeholder="Email">
+                <label for="consultar-vehiculo">Consulta:</label> <textarea class="dato" name="Consulta" id="" cols="30" rows="10"></textarea>
+                <label for="Captcha">Cuanto es 4+1?</label> <input type="text" name="Numero" class="dato" id="Captcha">
+                <p id="Resultado-Captcha"></p>
+            </fieldset>
+            </form>
         <button id="btn-enviar">Enviar</button>
     </main>
     <footer>
