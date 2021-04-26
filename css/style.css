@@ -1,24 +1,32 @@
 .Encabezado{
     display: flex;
     justify-content: space-between;
+    border-bottom: solid;
+    margin: 15px;
 }
 
 h1{
     text-transform: uppercase;
 }
-.left img{
-    display: flex;
-    text-transform: capitalize;
+ .left img{
     width: 500px;
     height: 300px;
-
+}
+thead{
+    border-style: groove;
+    background-color: #f5c814;
+}
+tr td{
+    padding: 5px;
+    margin: 50%;
+    
 }
 table{
+    margin: auto;
     border-style: solid;
+    padding: auto;
 }
 .right img{
-    display: flex;
-    text-transform: capitalize;
     width: 500px;
     height: 300px;
 }
@@ -50,9 +58,10 @@ aside{
 .autos{
     display: flex;
     justify-content: space-around;
+
 }
 
-li{
+li {
     list-style: none;
     display: flex;
     flex-direction: column;
