@@ -8,8 +8,8 @@
 h1{
     text-transform: uppercase;
 }
- .left img{
-    width: 500px;
+.left img{
+    width: 95%;
     height: 300px;
 }
 thead{
@@ -26,8 +26,8 @@ table{
     border-style: solid;
     padding: auto;
 }
-.right img{
-    width: 500px;
+.right  img {
+    width: 95%;
     height: 300px;
 }
 img{
