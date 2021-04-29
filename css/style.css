@@ -21,12 +21,11 @@ h1{
     text-transform: capitalize;
     border-style: groove;
 }
-<<<<<<< HEAD
 .left img, .right  img{
     width: 95%;
     height: 300px;
-=======
 
+}
 .informacion{
     display: flex;
     border-bottom: solid;
@@ -46,14 +45,12 @@ h1{
 
 .left h2, .right h2{
     border: lightblue outset;
->>>>>>> d4f4dd41d31375f5e3cf36824bb92add70376f55
+
 }
 
 thead{
-    display: flex;
     padding:10px;
     border-style: groove;
-    justify-content: space-around;
     background-color: #f5c814;
 }
 tr td{
@@ -63,15 +60,9 @@ tr td{
     
 }
 table{
-    display: flex;
-    align-content: space-around;
-    flex-direction: column;
     border-style: solid;
-<<<<<<< HEAD
     margin: 0 15%;
-=======
     padding: auto;
->>>>>>> d4f4dd41d31375f5e3cf36824bb92add70376f55
 }
 img{
     width: 300px;
@@ -84,20 +75,12 @@ img{
 
 }
 
-<<<<<<< HEAD
-}
-.logo{
-    width: 150px;
-    border-style: solid;
-=======
 
 aside{
     display: flex;
     flex-direction:column;
     border-style: groove;
->>>>>>> d4f4dd41d31375f5e3cf36824bb92add70376f55
 }
-
 .Navegacion-principal{
     background-color: #22b505;
     padding: 8px;
