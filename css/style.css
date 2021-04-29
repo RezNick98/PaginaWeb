@@ -1,34 +1,44 @@
 .Encabezado{
     display: flex;
+    background-color: #3b7e92;
     justify-content: space-between;
     border-bottom: solid;
-    margin: 15px;
 }
 
 h1{
     text-transform: uppercase;
+
 }
-.left img{
+.left,.right{
+    display: flex;
+    background-color: #cacaca;
+    flex-direction:column;
+    text-transform: capitalize;
+    border-style: groove;
+}
+.left img, .right  img{
     width: 95%;
     height: 300px;
 }
 thead{
+    display: flex;
+    padding:10px;
     border-style: groove;
+    justify-content: space-around;
     background-color: #f5c814;
 }
 tr td{
     padding: 5px;
     margin: 50%;
+    border-style: solid;
     
 }
 table{
-    margin: auto;
+    display: flex;
+    align-content: space-around;
+    flex-direction: column;
     border-style: solid;
-    padding: auto;
-}
-.right  img {
-    width: 95%;
-    height: 300px;
+    margin: 0 15%;
 }
 img{
     width: 300px;
@@ -45,19 +55,23 @@ img{
     border-bottom: solid;
 
 }
-
-aside{
-    display: flex;
-    flex-direction:column;
-    border-style: groove;
+.logo{
+    width: 150px;
+    border-style: solid;
 }
+
 .Navegacion-principal{
-    margin-bottom: auto;
+    background-color: #22b505;
+    padding: 8px;
+    margin-top: auto;
+    text-decoration: none;
+
 }
 
 .autos{
     display: flex;
     justify-content: space-around;
+    background-color: #df9b07c6;
 
 }
 
@@ -74,7 +88,7 @@ footer{
     text-transform: uppercase;
     border-top: solid;
     text-align: center;
-
+    background-color:#3b7e92 ;
 
 }
 fieldset{
