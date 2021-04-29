@@ -74,7 +74,7 @@ img{
     margin-bottom: 2%;
 
 }
-.Especificaciones-bmw li{
+.Especificaciones-bmw li, .bmw, .titulo-bmw{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,10 +86,11 @@ aside{
 }
 
 .Navegacion-principal{
-    background-color: #22b505;
+    background-color: lightseagreen;
     padding: 8px;
     margin-top: auto;
     text-decoration: none;
+    border: groove;
 
 }
 
@@ -141,4 +142,9 @@ fieldset{
 }
 legend {
   text-align: center;
+}
+
+.conteiner{
+    display: flex;
+    justify-content: space-around
 }
