@@ -1,3 +1,8 @@
+
+body{
+    background-color: lightblue;
+}
+
 .Encabezado{
     display: flex;
     background-color: #3b7e92;
@@ -16,10 +21,34 @@ h1{
     text-transform: capitalize;
     border-style: groove;
 }
+<<<<<<< HEAD
 .left img, .right  img{
     width: 95%;
     height: 300px;
+=======
+
+.informacion{
+    display: flex;
+    border-bottom: solid;
+    justify-content: space-around;
 }
+
+.left, .right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left img, .right  img{
+    width: 50em;
+    height: 28em;
+}
+
+.left h2, .right h2{
+    border: lightblue outset;
+>>>>>>> d4f4dd41d31375f5e3cf36824bb92add70376f55
+}
+
 thead{
     display: flex;
     padding:10px;
@@ -38,11 +67,15 @@ table{
     align-content: space-around;
     flex-direction: column;
     border-style: solid;
+<<<<<<< HEAD
     margin: 0 15%;
+=======
+    padding: auto;
+>>>>>>> d4f4dd41d31375f5e3cf36824bb92add70376f55
 }
 img{
     width: 300px;
-    height: 90%;
+    height: 70%;
 }
 #btn-enviar{
     width: 35%;
@@ -50,14 +83,19 @@ img{
     margin-bottom: 2%;
 
 }
-.informacion{
-    display: flex;
-    border-bottom: solid;
 
+<<<<<<< HEAD
 }
 .logo{
     width: 150px;
     border-style: solid;
+=======
+
+aside{
+    display: flex;
+    flex-direction:column;
+    border-style: groove;
+>>>>>>> d4f4dd41d31375f5e3cf36824bb92add70376f55
 }
 
 .Navegacion-principal{
@@ -75,13 +113,25 @@ img{
 
 }
 
+.autos img:hover{
+    transition: all .4s;
+    transform: scale(1.1);
+}
+
 li {
     list-style: none;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
+
 a:hover{
-    background-color: red
+    transition: all .2s;
+    border: lightgray 2px inset
+}
+
+a{
+    color: black;
 }
 
 footer{
@@ -97,8 +147,9 @@ fieldset{
 }
 .dato{
     display:flex;
-    width: 35%;
-    margin-left: 10%;
+    width: 50%;
+    background-color: lightgray;
+    margin-left: 5%;
     margin-bottom: 2%;
 }
 legend {
