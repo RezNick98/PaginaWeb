@@ -1,3 +1,8 @@
+
+body{
+    background-color: lightblue;
+}
+
 .Encabezado{
     display: flex;
     justify-content: space-between;
@@ -8,10 +13,28 @@
 h1{
     text-transform: uppercase;
 }
-.left img{
-    width: 95%;
-    height: 300px;
+
+.informacion{
+    display: flex;
+    border-bottom: solid;
+    justify-content: space-around;
 }
+
+.left, .right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left img, .right  img{
+    width: 50em;
+    height: 28em;
+}
+
+.left h2, .right h2{
+    border: lightblue outset;
+}
+
 thead{
     border-style: groove;
     background-color: #f5c814;
@@ -26,13 +49,9 @@ table{
     border-style: solid;
     padding: auto;
 }
-.right  img {
-    width: 95%;
-    height: 300px;
-}
 img{
     width: 300px;
-    height: 90%;
+    height: 70%;
 }
 #btn-enviar{
     width: 35%;
@@ -40,11 +59,7 @@ img{
     margin-bottom: 2%;
 
 }
-.informacion{
-    display: flex;
-    border-bottom: solid;
 
-}
 
 aside{
     display: flex;
@@ -61,13 +76,25 @@ aside{
 
 }
 
+.autos img:hover{
+    transition: all .4s;
+    transform: scale(1.1);
+}
+
 li {
     list-style: none;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
+
 a:hover{
-    background-color: red
+    transition: all .2s;
+    border: lightgray 2px inset
+}
+
+a{
+    color: black;
 }
 
 footer{
@@ -83,8 +110,9 @@ fieldset{
 }
 .dato{
     display:flex;
-    width: 35%;
-    margin-left: 10%;
+    width: 50%;
+    background-color: lightgray;
+    margin-left: 5%;
     margin-bottom: 2%;
 }
 legend {
