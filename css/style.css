@@ -12,34 +12,22 @@ body{
 
 h1{
     text-transform: uppercase;
-
 }
 .left,.right{
     display: flex;
+    align-items: center;
     background-color: #cacaca;
     flex-direction:column;
     text-transform: capitalize;
     border-style: groove;
-}
-.left img, .right  img{
-    width: 95%;
-    height: 300px;
-
 }
 .informacion{
     display: flex;
     border-bottom: solid;
     justify-content: space-around;
 }
-
-.left, .right{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .left img, .right  img{
-    width: 50em;
+    width: 42em;
     height: 28em;
 }
 
