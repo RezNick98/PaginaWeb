@@ -11,3 +11,4 @@ function EnviarFormulario(){
         document.querySelector("#Resultado-Captcha").innerHTML="Resultado incorrecto,vuelva a intentarlo";
     }
 }
+
