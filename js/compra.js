@@ -49,6 +49,7 @@ function compra1() {
             "Precio": precio,
         };
         tabla.push(nuevoAuto);
+        actualizar();
 }
 function compra2() {
     event.preventDefault();
@@ -62,6 +63,7 @@ function compra2() {
             "Precio": precio,
         };
         tabla.push(nuevoAuto);
+        actualizar();
 }
 function compra3() {
     event.preventDefault();
@@ -75,6 +77,7 @@ function compra3() {
             "Precio": precio,
         };
         tabla.push(nuevoAuto);
+        actualizar();
 }
 function compra4() {
     event.preventDefault();
@@ -88,6 +91,7 @@ function compra4() {
             "Precio": precio,
         };
         tabla.push(nuevoAuto);
+        actualizar();
 }
 function compra5() {
     event.preventDefault();
@@ -101,6 +105,7 @@ function compra5() {
             "Precio": precio,
         };
         tabla.push(nuevoAuto);
+        actualizar();
 }
 function compra6() {
     event.preventDefault();
@@ -114,13 +119,10 @@ function compra6() {
             "Precio": precio,
         };
         tabla.push(nuevoAuto);
+        actualizar();
 }
 
-
-document.getElementById("carrito").addEventListener("click", actualizar);
-
 function actualizar() {
-    event.preventDefault();
     let t = document.getElementById("tabla-dinamica");
         t.innerHTML = " ";
 

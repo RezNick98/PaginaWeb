@@ -21,34 +21,35 @@
     <main>
         <section>
             <form>
-                <table>
-                    <thead>
-                       <tr>
-                            <th>Modelo</th>
-                            <th>Especificaciones</th>
-                            <th>Precio</th>
-                            <th>Comprar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td id="nombre-evo">Evolution VII</td>
-                            <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
-                            <td id="valor-evo">$100.000</td>
-                            <td><button id="btn-evo">Comprar</button></td>
-                        </tr>
-                        <tr>
-                            <td id="nombre-supra">M4 Supra(Oriental)</td>
-                            <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
-                            <td id="valor-supra">$150.000</td>
-                            <td><button id="btn-supra">Comprar</button></td>
-                        </tr>
-                        <tr>
-                            <td id="nombre-m3">M3-m30</td>
-                            <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
-                            <td id="valor-m3">$80.000</td>
-                            <td><button id="btn-m30">Comprar</button></td>
-                        </tr>
+                <div id="tabla-comunYtabla-dinamica">
+                    <table id="tabla-comun">
+                        <thead>
+                            <tr>
+                                <th>Modelo</th>
+                                <th>Especificaciones</th>
+                                <th>Precio</th>
+                                <th>Comprar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="nombre-evo">Evolution VII</td>
+                                <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
+                                <td id="valor-evo">$100.000</td>
+                                <td><button id="btn-evo">Comprar</button></td>
+                            </tr>
+                            <tr>
+                                <td id="nombre-supra">M4 Supra(Oriental)</td>
+                                <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
+                                <td id="valor-supra">$150.000</td>
+                                <td><button id="btn-supra">Comprar</button></td>
+                            </tr>
+                            <tr>
+                                <td id="nombre-m3">M3-m30</td>
+                                <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
+                                <td id="valor-m3">$80.000</td>
+                                <td><button id="btn-m30">Comprar</button></td>
+                            </tr>
                         <tr>
                             <td id="nombre-corsa">Chevrolet corsa</td>
                             <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
@@ -70,9 +71,14 @@
                     </tbody>
                 </table>
                 <table id="tabla-dinamica">
-
+                    
                 </table>
-                <button id="carrito">Actualizar carrito</button>
+                <section>
+                    <h3>El total de compra es:</h3>
+                    <p id="total"></p>
+                </section>
+                <hr>
+            </div>
                 <button id="agregar-varios">Agregar premiums</button>
                 <button id="borrar">Borrar carrito</button>
             </form>

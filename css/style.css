@@ -136,3 +136,12 @@ legend {
     display: flex;
     justify-content: space-around
 }
+/* tabla dinamica */
+#tabla-comunYtabla-dinamica{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#tabla-dinamica, #tabla-comun{
+    border: 0px;
+}
