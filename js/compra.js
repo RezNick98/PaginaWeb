@@ -44,11 +44,8 @@ function compra1() {
     let precio = document.getElementById("valor-evo").innerHTML;
         console.log(precio);
 
-        let nuevoAuto = {
-            "Nombre": nombre,
-            "Precio": precio,
-        };
-        tabla.push(nuevoAuto);
+        nuevoAuto(nombre, precio);
+        actualizar();
 }
 function compra2() {
     event.preventDefault();
@@ -57,11 +54,8 @@ function compra2() {
     let precio = document.getElementById("valor-supra").innerHTML;
         console.log(precio);
 
-        let nuevoAuto = {
-            "Nombre": nombre,
-            "Precio": precio,
-        };
-        tabla.push(nuevoAuto);
+        nuevoAuto(nombre, precio);
+        actualizar();
 }
 function compra3() {
     event.preventDefault();
@@ -70,11 +64,8 @@ function compra3() {
     let precio = document.getElementById("valor-m3").innerHTML;
         console.log(precio);
 
-        let nuevoAuto = {
-            "Nombre": nombre,
-            "Precio": precio,
-        };
-        tabla.push(nuevoAuto);
+        nuevoAuto(nombre, precio);
+        actualizar();
 }
 function compra4() {
     event.preventDefault();
@@ -83,11 +74,8 @@ function compra4() {
     let precio = document.getElementById("valor-corsa").innerHTML;
         console.log(precio);
 
-        let nuevoAuto = {
-            "Nombre": nombre,
-            "Precio": precio,
-        };
-        tabla.push(nuevoAuto);
+        nuevoAuto(nombre, precio);
+        actualizar();
 }
 function compra5() {
     event.preventDefault();
@@ -96,11 +84,8 @@ function compra5() {
     let precio = document.getElementById("valor-fox").innerHTML;
         console.log(precio);
 
-        let nuevoAuto = {
-            "Nombre": nombre,
-            "Precio": precio,
-        };
-        tabla.push(nuevoAuto);
+        nuevoAuto(nombre, precio);
+        actualizar();
 }
 function compra6() {
     event.preventDefault();
@@ -109,15 +94,17 @@ function compra6() {
     let precio = document.getElementById("valor-golf").innerHTML;
         console.log(precio);
 
-        let nuevoAuto = {
-            "Nombre": nombre,
-            "Precio": precio,
-        };
-        tabla.push(nuevoAuto);
+        nuevoAuto(nombre, precio);
+        actualizar();
 }
 
-
-document.getElementById("carrito").addEventListener("click", actualizar);
+function nuevoAuto(n, p) {
+    let nuevoAuto = {
+        "Nombre": n,
+        "Precio": p,
+    };
+    tabla.push(nuevoAuto);
+}
 
 function actualizar() {
     event.preventDefault();
