@@ -1,147 +1,305 @@
-
 body{
     background-color: lightblue;
 }
+/*INDEX */
+    h1{
+        text-transform: uppercase;
+        
+    }
+    .autos{
+        display: block;
+        background-color: #df9b07c6;
+        
+    }
+    .autos img{
+        margin: 0 auto;
+        max-width: 100%;
+    }
 
-.Encabezado{
-    display: flex;
-    background-color: #3b7e92;
-    justify-content: space-between;
-    border-bottom: solid;
-}
+    .left,.right{
+        display: flex;
+        align-items: center;
+        background-color: #cacaca;
+        flex-direction:column;
+        text-transform: capitalize;
+        border-style: groove;
+        
+    }
+    .Navegacion-principal{
+        background-color: lightseagreen;
+        text-decoration: none;
+        border: groove;
+        margin: 0 auto;
+        max-width: 100%;
+        width: 80%;
+    }
 
-h1{
-    text-transform: uppercase;
-}
-.left,.right{
-    display: flex;
-    align-items: center;
-    background-color: #cacaca;
-    flex-direction:column;
-    text-transform: capitalize;
-    border-style: groove;
-}
-.informacion{
-    display: flex;
-    border-bottom: solid;
-    justify-content: space-around;
-}
-.left img, .right  img{
-    width: 42em;
-    height: 28em;
-}
 
-.left h2, .right h2{
-    border: lightblue outset;
+    .left img, .right  img{
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        width: 80%;
+    }
+    li {
+        list-style: none;
+        display: flex;
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        width: 80%;
 
-}
-
-thead{
-    padding:10px;
-    border-style: groove;
-    background-color: #f5c814;
-}
-tr td{
-    padding: 5px;
-    margin: 50%;
-    border-style: solid;
+        justify-content: space-around;
+        
+    }
     
-}
-table{
-    border-style: solid;
-    margin: 0 15%;
-    padding: auto;
-}
-img{
-    width: 300px;
-    height: 70%;
-}
-#btn-enviar{
-    width: 35%;
-    margin-left: 10%;
-    margin-bottom: 2%;
-
-}
-.Especificaciones-bmw li, .bmw, .titulo-bmw{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-aside{
-    display: flex;
-    flex-direction:column;
-    border-style: groove;
-}
-
-.Navegacion-principal{
-    background-color: lightseagreen;
-    padding: 8px;
-    margin-top: auto;
-    text-decoration: none;
-    border: groove;
-
-}
-
-.autos{
-    display: flex;
-    justify-content: space-around;
-    background-color: #df9b07c6;
-
-}
-
-.autos img:hover{
-    transition: all .4s;
-    transform: scale(1.1);
-}
-
-li {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-a:hover{
-    transition: all .2s;
-    border: lightgray 2px inset
-}
-
-a{
-    color: black;
-}
-
-footer{
-    text-transform: uppercase;
-    border-top: solid;
-    text-align: center;
-    background-color:#3b7e92 ;
-
-}
-fieldset{
-    display: flex;
-    flex-direction: column;
-}
-.dato{
-    display:flex;
-    width: 50%;
-    background-color: lightgray;
-    margin-left: 5%;
-    margin-bottom: 2%;
-}
-legend {
-  text-align: center;
-}
-
-.conteiner{
-    display: flex;
-    justify-content: space-around
-}
-/* tabla dinamica */
-#tabla-comunYtabla-dinamica{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#tabla-dinamica, #tabla-comun{
-    border: 0px;
+    .left h2, .right h2{
+        border: lightblue outset;
+        
+    }
+    aside{
+        display: flex;
+        flex-direction:column;
+        border-style: groove;
+    }
+    
+    /*CONTACTO*/
+    fieldset{
+        display: flex;
+        flex-direction: column;
+    }
+    #btn-enviar{
+        width: 35%;
+        margin-left: 10%;
+        margin-bottom: 2%;
+        
+    }
+    .dato{
+        display:flex;
+        width: 50%;
+        background-color: lightgray;
+        margin-left: 5%;
+        margin-bottom: 2%;
+    }
+    legend {
+        text-align: center;
+    }
+    
+    /* TABLA DINAMICA */
+    #tabla-comunYtabla-dinamica{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    #tabla-dinamica, #tabla-comun{
+        border: 0px;
+    }
+    /*TABLA*/
+    thead{
+        padding:10px;
+        border-style: groove;
+        background-color: #f5c814;
+    }
+    tr td{
+        
+        padding: 5px;
+        margin: 50%;
+        border-style: solid;
+        
+    }
+    table{
+        border-style: solid;
+        margin: 0 15%;
+        padding: auto;
+        max-width: 100%;
+        width: 80%;
+    }
+    li{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /*ESPECIFICACIONES-BMW*/
+    .Especificaciones-bmw ,.bmw, .titulo-bmw{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .conteiner{
+        display: flex;
+        justify-content: space-around
+    }
+    /* Encabezado*/   
+    .Encabezado{
+        display: flex;
+        background-color: #3b7e92;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    a{
+        color: black;
+    }
+    .Navegacion-principal{
+        background-color: lightseagreen;
+        
+    }
+    
+    a:hover{
+        transition: all .2s;
+        border: lightgray 2px inset
+    }
+    /*Footer*/
+    footer{
+        text-transform: uppercase;
+        border-top: solid;
+        text-align: center;
+        background-color:#3b7e92 ;
+        
+    }
+    
+    @media only screen and (min-width:600px){
+        .left,.right{
+            display: flex;
+            align-items: center;
+            background-color: #cacaca;
+            flex-direction:column;
+            text-transform: capitalize;
+            border-style: groove;
+        }
+        
+        .autos img:hover{
+            transition: all .4s;
+            transform: scale(1.1);
+        }
+        .informacion{
+            display: flex;
+            border-bottom: solid;
+            justify-content: space-around;
+        }
+        .left img, .right  img{
+            width: 42em;
+            height: 28em;
+        }
+        .autos{
+            display: flex;
+            justify-content: space-around;
+            background-color: #df9b07c6;
+            
+        }
+        /* Encabezado*/   
+        .Encabezado{
+            display: flex;
+            background-color: #3b7e92;
+            justify-content: space-between;
+            border-bottom: solid;
+        }
+        a{
+            color: black;
+        }
+        .Navegacion-principal{
+            display: flex;
+            background-color: lightseagreen;
+            padding: 8px;
+            margin-top: auto;
+            text-decoration: none;
+            border: groove;
+            justify-content: space-between;
+        }
+        
+        a:hover{
+            transition: all .2s;
+            border: lightgray 2px inset
+        }
+        /*Footer*/
+        footer{
+            text-transform: uppercase;
+            border-top: solid;
+            text-align: center;
+            background-color:#3b7e92 ;
+            
+        }
+        body{
+            background-color: lightblue;
+        }
+            /*TABLA*/
+    tr td{
+        padding: 5px;
+        margin: 50%;
+        border-style: solid;
+        
+    }
+    table{
+        border-style: solid;
+        margin: 0 15%;
+        padding: auto;
+    }
+    img{
+        width: 300px;
+        height: 70%;
+    }
+    li{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+      /* TABLA DINAMICA */
+      #tabla-comunYtabla-dinamica{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    #tabla-dinamica, #tabla-comun{
+        border: 0px;
+    }
+    /*TABLA*/
+    thead{
+        padding:10px;
+        border-style: groove;
+        background-color: #f5c814;
+    }
+    tr td{
+        padding: 5px;
+        margin: 50%;
+        border-style: solid;
+        
+    }
+    table{
+        border-style: solid;
+        margin: 0 15%;
+        padding: auto;
+    }
+    li{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /*ESPECIFICACIONES-BMW*/
+    .Especificaciones-bmw ,.bmw, .titulo-bmw{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .conteiner{
+        display: flex;
+        justify-content: space-around
+    }
+    /* Encabezado*/   
+    .Encabezado{
+        display: flex;
+        background-color: #3b7e92;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    a{
+        color: black;
+    }
+    .Navegacion-principal{
+        background-color: lightseagreen;
+        
+    }
+    
+    a:hover{
+        transition: all .2s;
+        border: lightgray 2px inset
+    }
 }
