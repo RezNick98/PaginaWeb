@@ -156,6 +156,15 @@ body{
         background-color:#3b7e92 ;
         
     }
+
+    /*TOTAL COMPRA*/
+    .total-estilo{
+        background-color: #3b7e92;
+        width: 100%;
+        border: 2px inset lightgray;
+        color: #f5c814;
+        font-size: 1.8rem;
+    }
     
     @media only screen and (min-width:600px){
         .left,.right{

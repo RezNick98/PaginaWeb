@@ -20,15 +20,15 @@
     </header>
     <main>
         <h2>Contactanos para mas informacion</h2>
-        <form>
+        <form id="form">
             <fieldset>
                 <legend><span>Complete los siguientes datos</span></legend>
-                <label for="nombre">Nombre:</label><input class="dato" type="text" name="Nombre" id="DatoNombre" placeholder="Nombre" >
-                <label for="apellido">Apellido:</label><input class="dato" type="text" name="Apellido" id="DatoApellido" placeholder="Apellido" >
-                <label for="numero de telefono">Numero de telefono:</label><input class="dato" type="number" name="Numero de telefono" id="DatoTelefono" placeholder="Numero telefonico">
-                <label for="email">Correo electronico:</label><input class="dato" type="email" name="correo" id="DatoEmail"placeholder="Email" >
-                <label for="consultar-vehiculo">Consulta:</label> <textarea class="dato" name="Consulta" id="Consulta" cols="30" rows="10"></textarea>
-                <label for="Captcha">Escriba el numero <span id="numero"></span> dentro del captcha</label> <input type="number" name="Numero" class="dato" id="Captcha">
+                <label for="nombre">Nombre:</label><input class="dato" type="text" name="Nombre" id="DatoNombre" placeholder="Nombre" required>
+                <label for="apellido">Apellido:</label><input class="dato" type="text" name="Apellido" id="DatoApellido" placeholder="Apellido" required>
+                <label for="numero de telefono">Numero de telefono:</label><input class="dato" type="number" name="Numero de telefono" id="DatoTelefono" placeholder="Numero telefonico" required>
+                <label for="email">Correo electronico:</label><input class="dato" type="email" name="correo" id="DatoEmail"placeholder="Email" required>
+                <label for="consultar-vehiculo">Consulta:</label> <textarea class="dato" name="Consulta" id="Consulta" cols="30" rows="10" r></textarea>
+                <label for="Captcha">Escriba el numero <span id="numero"></span> dentro del captcha</label> <input type="number" name="Numero" class="dato" id="Captcha" required>
                 <p id="Resultado-Captcha"></p>
                 <button id="btn-enviar">Enviar</button>
             </fieldset>
