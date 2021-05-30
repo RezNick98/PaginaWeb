@@ -149,6 +149,10 @@ body{
         
     }
     
+    .Navegacion-principal{
+        background-color: lightseagreen;
+        
+    }
 @media only screen and (min-width:600px){
         .left,.right{
             display: flex;
@@ -158,7 +162,6 @@ body{
             text-transform: capitalize;
             border-style: groove;
         }
-        
         .autos img:hover{
             transition: all .4s;
             transform: scale(1.1);
@@ -191,8 +194,9 @@ body{
             background-color: lightseagreen;
             padding:8px;
             text-decoration: none;
-
-
+        }
+        #MenuRespo{
+            display: none;
         }
     ul{
         display: flex;
@@ -201,9 +205,6 @@ body{
         justify-content: space-between;
         padding-left: 10rem;
     }
-        #MenuRespo{
-            display: none;
-        }
         a:hover{
             transition: all .2s;
             border: lightgray 2px inset
