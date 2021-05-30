@@ -38,8 +38,8 @@ function mostrar() {
             <th>Precio</th>
         </thead>
         <tbody>
-            <td> ${i.nombre} </td>
-            <td> ${i.precio} </td>
+            <td class="nombre"> ${i.nombre} </td>
+            <td class="precio"> ${i.precio} </td>
         </tbody>
         `
     }
