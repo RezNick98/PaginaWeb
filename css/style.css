@@ -7,7 +7,18 @@ body{
     .MenuResponsive{
         display:none;
     }
-/*INDEX */
+    #MenuRespo{
+        width: 100%;
+    }
+
+    .Navegacion-principal{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+
+ 
+    }
+/************************************INDEX********************************************************/
     h1{
         text-transform: uppercase;
         
@@ -31,25 +42,16 @@ body{
         border-style: groove;
         
     }
-    
-    
+    li{
+        list-style: none;
+    }
     .left img, .right  img{
         display: block;
         margin: 0 auto;
         max-width: 100%;
         width: 80%;
     }
-    li {
-        list-style: none;
-        display: flex;
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-        width: 80%;
-        
-        justify-content: space-around;
-        
-    }
+    
     
     .left h2, .right h2{
         border: lightblue outset;
@@ -61,29 +63,31 @@ body{
         border-style: groove;
     }
     
-    /*CONTACTO*/
+/**************************************CONTACTO***************************************************/
     fieldset{
         display: flex;
         flex-direction: column;
     }
     #btn-enviar{
-        width: 35%;
+        max-width: 100%;
+        width: 80%;
         margin-left: 10%;
         margin-bottom: 2%;
         
     }
     .dato{
-        display:flex;
-        width: 50%;
+        display:block;
+        max-width: 100%;
+        width: 80%;
+        margin: 0 auto;
         background-color: lightgray;
-        margin-left: 5%;
-        margin-bottom: 2%;
+
     }
     legend {
         text-align: center;
     }
     
-    /* TABLA DINAMICA */
+/********************************************* TABLA DINAMICA ************************************/
     #tabla-comunYtabla-dinamica{
         display: flex;
         flex-wrap: wrap;
@@ -92,36 +96,33 @@ body{
     #tabla-dinamica, #tabla-comun{
         border: 0px;
     }
-    /*TABLA*/
+/*************************************************TABLA********************************************/
     thead{
         padding:10px;
-        border-style: groove;
         background-color: #f5c814;
     }
     tr td{
         
         padding: 5px;
         margin: 50%;
-        border-style: solid;
     
         
     }
-    table{
-        display: grid;
-        border-style: solid;
-        padding: auto;
-    }
-    /*ESPECIFICACIONES-BMW*/
+/*************************************************ESPECIFICACIONES-BMW*****************************/
     .Especificaciones-bmw ,.bmw, .titulo-bmw{
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        max-width: 25rem;
+        width: 15rem;
+        flex-wrap: wrap;
+
     }
-    .conteiner{
+    .conteiner img{
         display: flex;
-        justify-content: space-around
+        max-width: 25rem;
+        width: 15rem;
+        margin: 0 auto;
     }
-    /* Encabezado*/   
+/*****************************************************Encabezado*******************************/   
     .Encabezado{
         display: flex;
         background-color: #3b7e92;
@@ -140,7 +141,7 @@ body{
         transition: all .2s;
         border: lightgray 2px inset
     }
-    /*Footer*/
+/******************************************************Footer****************************************/
     footer{
         text-transform: uppercase;
         border-top: solid;
@@ -148,8 +149,7 @@ body{
         background-color:#3b7e92 ;
         
     }
-
-    /*TOTAL COMPRA*/
+/************************************************TOTAL-COMPRA************************************/
     .total-estilo{
         background-color: #3b7e92;
         width: 100%;
@@ -167,7 +167,10 @@ body{
         background-color: lightseagreen;
         
     }
-@media only screen and (min-width:600px){
+                    /*Desktop View*/
+    @media only screen and (min-width:600px)
+    {
+        /* INDEX*/   
         .left,.right{
             display: flex;
             align-items: center;
@@ -176,11 +179,11 @@ body{
             text-transform: capitalize;
             border-style: groove;
         }
-        .autos img:hover{
-            transition: all .4s;
-            transform: scale(1.1);
-        }
-        .informacion{
+            .autos img:hover{
+                transition: all .4s;
+                transform: scale(1.1);
+            }
+            .informacion{
             display: flex;
             border-bottom: solid;
             justify-content: space-around;
@@ -189,13 +192,17 @@ body{
             width: 42em;
             height: 28em;
         }
+
+        .Navegacion-principal{
+            display: flex;
+            padding: auto;
+            margin: auto;
+        }
         .autos{
             display: flex;
-            justify-content: space-around;
             background-color: #df9b07c6;
             
         }
-        /* Encabezado*/   
         .Encabezado{
             background-color: #3b7e92;
             margin-bottom: auto;
@@ -203,27 +210,21 @@ body{
         a{
             color: black;
         }
-        .Navegacion-principal{
-            display:flex;
-            background-color: lightseagreen;
-            padding:8px;
-            text-decoration: none;
+        #Items-Menu{
+            display: flex;
+            margin: auto;
         }
-        #MenuRespo{
-            display: none;
+        li {
+            display: flex;
+            flex-wrap: wrap;
+            width: auto;
+            
         }
-    ul{
-        display: flex;
-    }
-    li{
-        justify-content: space-between;
-        padding-left: 10rem;
-    }
         a:hover{
             transition: all .2s;
             border: lightgray 2px inset
         }
-        /*Footer*/
+    /*Footer*/
         footer{
             text-transform: uppercase;
             border-top: solid;
@@ -235,41 +236,83 @@ body{
         body{
             background-color: lightblue;
         }
-            /*TABLA*/
-    tr td{
-        padding: 5px;
-        margin: 50%;
-        border-style: solid;
-        
-    }
-    table{
-        border-style: solid;
-        margin: 0 15%;
-        padding: auto;
-    }
-    img{
-        width: 300px;
-        height: 70%;
-    }
-      /* TABLA DINAMICA */
-      #tabla-comunYtabla-dinamica{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
-    #tabla-dinamica, #tabla-comun{
-        border: 0px;
-    }
-
+    /*TABLA*/
+        tr td{
+            padding: 5px;
+            margin: 50%;
+            border-style: solid;
+        }
+        table{
+            border-style: solid;
+            margin: 0 15%;
+            padding: auto;
+        }
+        img{
+            width: 300px;
+            height: 70%;
+        }
+    /* TABLA DINAMICA */
+        #tabla-comunYtabla-dinamica{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #tabla-dinamica, #tabla-comun{
+            border: 0px;
+        }
     /*ESPECIFICACIONES-BMW*/
-    .Especificaciones-bmw ,.bmw, .titulo-bmw{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        .Especificaciones-bmw ,.bmw, .titulo-bmw{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+                .conteiner{
+                    display: flex;
+                    justify-content: space-around
+                }
+/**************************************CONTACTO***************************************************/
+                fieldset{
+                    display: flex;
+                    flex-direction: column;
+                }
+                #btn-enviar{
+                    max-width: 35%;
+                    margin-left: 10%;
+                    margin-bottom: 2%;
+                    
+                }
+                .dato{
+                    display:flex;
+                    width: 50%;
+                    background-color: lightgray;
+                    margin-left: 5%;
+                    margin-bottom: 2%;
+                }
+                legend {
+                    text-align: center;
     }
-    .conteiner{
-        display: flex;
-        justify-content: space-around
-    }
-
-}
+/************************************************TOTALCOMPRA*************************************/
+                .total-estilo{
+                    background-color: #3b7e92;
+                    width: 100%;
+                    border: 2px inset lightgray;
+                    color: #f5c814;
+                    font-size: 1.8rem;
+                }
+                
+                .precio{
+                    background-color: #3b7e92;
+                    color: #f5c814;
+                }
+                
+                .Navegacion-principal{
+                    background-color: lightseagreen;
+                    
+                }
+                
+                #MenuRespo{
+                    display: none;
+                }
+            }
+            
+            
