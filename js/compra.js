@@ -37,6 +37,8 @@ function mostrar() {
 
     let style = 0;
 
+    let eliminar = 0;
+
     for (const i of tabla) {
 
         t.innerHTML += `<thead>
@@ -46,12 +48,15 @@ function mostrar() {
         <tbody>
             <td> ${i.nombre} </td>
             <td id="${style}"> ${i.precio} </td>
+            <td> <button id="${eliminar}"> Eliminar </button> </td>
         </tbody>
         `
         colorear(style);
+        eliminar++;
+        console.log(eliminar);
         style++;
     }
-        
+    
 }
 
 mostrar();
@@ -66,7 +71,7 @@ function colorear(s){
             }
 }
 
-////////Boton de borrar carrito////////////////////////////////////////////////////////////////////////////////////
+////////total////////////////////////////////////////////////////////////////////////////////////
 
 function total() {
     let valor = 0;
@@ -178,7 +183,9 @@ document.getElementById("agregar-varios").addEventListener("click", function(e){
 
 document.getElementById("borrar").addEventListener("click", function(e){ borrar(tabla); mostrar(); total();});
 
-function borrar(t) {
+////////////////////////////////////////////////////////////////////////////////////
+
+function borrar(t, n) {
     for (let i = t.length; i > 0; i--) {
         tabla.pop();
     }
