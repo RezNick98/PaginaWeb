@@ -12,6 +12,9 @@ function noEnvia(e){
 
 ////////////////////////////////////////////////////////////////////////////////////
 
+/*La tabla inicia precargada con un inicio de compra == 0 */
+let inicio = 0;
+
 let tabla =[
     {
         "nombre": "Evolution VII",
@@ -32,20 +35,36 @@ function mostrar() {
 
     t.innerHTML = " ";
 
+    let style = 0;
+
     for (const i of tabla) {
+
         t.innerHTML += `<thead>
             <th>Modelo</th>
             <th>Precio</th>
         </thead>
         <tbody>
-            <td class="nombre"> ${i.nombre} </td>
-            <td class="precio"> ${i.precio} </td>
+            <td> ${i.nombre} </td>
+            <td id="${style}"> ${i.precio} </td>
         </tbody>
         `
+        colorear(style);
+        style++;
     }
+        
 }
 
 mostrar();
+
+function colorear(s){
+
+    let estilo = String(s);
+       let pos = document.getElementById(estilo);
+        let p = Number(pos.innerHTML);
+            if(p > 70000){
+                document.getElementById(estilo).classList.add("precio");
+            }
+}
 
 ////////Boton de borrar carrito////////////////////////////////////////////////////////////////////////////////////
 
@@ -104,7 +123,16 @@ document.getElementById("btn-golf").addEventListener("click", function(e){
 });
 
 function comprar(n, p){
-    
+
+/*Al hacer la primera compra la tabla precargada se reiniciara con los datos correspondientes, es decir, los elegidos por el usuario. */
+    if((inicio < 1) && (inicio == 0)){
+        borrar(tabla);
+        inicio++;
+    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    console.log(inicio);
+
     let nuevoAuto ={
         "nombre": n,
         "precio": p,
