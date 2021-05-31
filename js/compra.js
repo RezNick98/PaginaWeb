@@ -37,8 +37,6 @@ function mostrar() {
 
     let style = 0;
 
-    let eliminar = 0;
-
     for (const i of tabla) {
 
         t.innerHTML += `<thead>
@@ -48,11 +46,9 @@ function mostrar() {
         <tbody>
             <td> ${i.nombre} </td>
             <td id="${style}"> ${i.precio} </td>
-            <td> <button id="${eliminar}"> Eliminar </button> </td>
         </tbody>
         `
         colorear(style);
-        eliminar++;
         console.log(eliminar);
         style++;
     }
