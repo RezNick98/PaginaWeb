@@ -49,7 +49,6 @@ function mostrar() {
         </tbody>
         `
         colorear(style);
-        console.log(eliminar);
         style++;
     }
     
