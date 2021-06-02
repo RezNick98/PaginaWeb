@@ -13,20 +13,22 @@ function noEnvia(e){
 ////////////////////////////////////////////////////////////////////////////////////
 
 /*La tabla inicia precargada con un inicio de compra == 0 */
-let inicio = 0;
 
 let tabla =[
     {
-        "nombre": "Evolution VII",
-        "precio": "100000"
+        "nombre": "Evolution VII Precargado",
+        "precio": "100000",
+        "contador": "0"            
     },
     {
         "nombre": "Evolution VII",
-        "precio": "100000"
+        "precio": "100000",
+        "contador": "0"                        
     },
     {
         "nombre": "Evolution VII",
-        "precio": "100000"
+        "precio": "100000",
+        "contador": "0"                
     },
 ];
 
@@ -46,6 +48,7 @@ function mostrar() {
         <tbody>
             <td> ${i.nombre} </td>
             <td id="${style}"> ${i.precio} </td>
+            <td> ${i.contador} </td>
         </tbody>
         `
         colorear(style);
@@ -70,9 +73,11 @@ function colorear(s){
 
 function total() {
     let valor = 0;
+    let valorMulti = 0;
 
     for (let i = 0; i < tabla.length; i++) {
-        valor += Number(tabla[i].precio);
+        valorMulti = Number(tabla[i].precio) * Number(tabla[i].contador);
+        valor += valorMulti;
     }
 
     console.log(valor);
@@ -86,60 +91,73 @@ total();
 
 ////////Botones de comprar////////////////////////////////////////////////////////////////////////////////////
 
+    let contadorA = 0;
 document.getElementById("btn-evo").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-evo").innerHTML;
     let precio = document.getElementById("valor-evo").innerHTML;
-        comprar(nombre, precio);
+        contadorA++;
+        comprar(nombre, precio, contadorA);
 });
 
+    let contadorB = 0;
 document.getElementById("btn-supra").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-supra").innerHTML;
     let precio = document.getElementById("valor-supra").innerHTML;
-        comprar(nombre, precio);
+        contadorB++;
+        comprar(nombre, precio, contadorB);
 });
 
+    let contadorC = 0
 document.getElementById("btn-m30").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-m30").innerHTML;
     let precio = document.getElementById("valor-m30").innerHTML;
-        comprar(nombre, precio);
+        contadorC++;
+        comprar(nombre, precio, contadorC);
 });
 
+    let contadorD = 0
 document.getElementById("btn-corsa").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-corsa").innerHTML;
-    let precio = document.getElementById("valor-corsa").innerHTML; 
-        comprar(nombre, precio);
+    let precio = document.getElementById("valor-corsa").innerHTML;
+        contadorD++; 
+        comprar(nombre, precio, contadorD);
 });
 
+    let contadorE = 0
 document.getElementById("btn-fox").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-fox").innerHTML;
-    let precio = document.getElementById("valor-fox").innerHTML
-        comprar(nombre, precio);
+    let precio = document.getElementById("valor-fox").innerHTML;
+        contadorE++;
+        comprar(nombre, precio, contadorE);
 });
 
+    let contadorF = 0;
 document.getElementById("btn-golf").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-golf").innerHTML;
-    let precio = document.getElementById("valor-golf").innerHTML 
-        comprar(nombre, precio);
+    let precio = document.getElementById("valor-golf").innerHTML;
+        contadorF++;
+        comprar(nombre, precio, contadorF);
 });
 
-function comprar(n, p){
+function comprar(n, p, c){
 
 /*Al hacer la primera compra la tabla precargada se reiniciara con los datos correspondientes, es decir, los elegidos por el usuario. */
-    if((inicio < 1) && (inicio == 0)){
+    if(tabla[0].nombre == "Evolution VII Precargado"){
         borrar(tabla);
-        inicio++;
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    console.log(inicio);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     let nuevoAuto ={
         "nombre": n,
         "precio": p,
+        "contador": c,
     };
 
-    tabla.push(nuevoAuto);
+    Top(nuevoAuto);
+
+    
     mostrar();
     total();
 }
@@ -150,28 +168,55 @@ function comprar(n, p){
 
 document.getElementById("agregar-varios").addEventListener("click", function(e){
 
+    if(tabla[0].nombre == "Evolution VII Precargado"){
+        borrar(tabla);
+    }
+
+    let c = 1;
     let autosTop =[{
         "nombre": "Evolution VII",
         "precio": "100000",
+        "contador": c,
     },
     {
         "nombre": "M4 Supra",
         "precio": "150000",
+        "contador": c,
     },
     {
         "nombre": "M3-m30",
         "precio": "80000",
+        "contador": c,
     },
 ];
 
     for (let i = 0; i < autosTop.length; i++) {
-        tabla.push(autosTop[i]);
+        Top(autosTop[i]);
     }
 
     mostrar();
     total();
 
 });
+
+////////////////////////////////////////////////////////////////////////////////////
+
+////////Busco iguales y si no encuentro agrego a la tabla////////////////////////////////////////////////////////////////////////////////////
+
+function Top(a) {
+    let x = false;
+
+    for (let i = 0; i < tabla.length; i++) {
+        if(a.nombre == tabla[i].nombre){
+            x = true;
+            tabla[i].contador++;
+        }
+    }
+
+    if(x == false){
+        tabla.push(a);
+    }
+}
 
 ////////////////////////////////////////////////////////////////////////////////////
 
