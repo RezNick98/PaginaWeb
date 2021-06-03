@@ -150,6 +150,7 @@ document.getElementById("btn-golf").addEventListener("click", function(e){
         comprar(nombre, precio, contadorF);
 });
 
+/*Esta variable me va a identificar cual es el ultomo auto comprado */
 let UlimoAutoComprado = {};
 
 function comprar(n, p, c){
@@ -272,6 +273,7 @@ function borrarUltimo(u) {
             }
         }
         mostrar();
+        total();
 }
 
 
