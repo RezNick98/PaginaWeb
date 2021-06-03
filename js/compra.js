@@ -12,25 +12,36 @@ function noEnvia(e){
 
 ////////////////////////////////////////////////////////////////////////////////////
 
+    let inicio = false;
+
 /*La tabla inicia precargada con un inicio de compra == 0 */
 
 let tabla =[
     {
         "nombre": "Evolution VII Precargado",
         "precio": "100000",
-        "contador": "0"            
+        "contador": "1"            
     },
     {
-        "nombre": "Evolution VII",
-        "precio": "100000",
-        "contador": "0"                        
+        "nombre": "Chevrolet corsa",
+        "precio": "8000",
+        "contador": "1"                        
     },
     {
-        "nombre": "Evolution VII",
-        "precio": "100000",
-        "contador": "0"                
+        "nombre": "Volkswagen Fox",
+        "precio": "20000",
+        "contador": "1"                
     },
 ];
+
+////////Inicio verdadero de la tabla////////////////////////////////////////////////////////////////////////////////////
+function inicioTabla() {
+    if(inicio == false){
+        inicio = true;
+        borrar(tabla);
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////
 
 function mostrar() {
     let t = document.getElementById("tabla-dinamica");
@@ -142,9 +153,7 @@ document.getElementById("btn-golf").addEventListener("click", function(e){
 function comprar(n, p, c){
 
 /*Al hacer la primera compra la tabla precargada se reiniciara con los datos correspondientes, es decir, los elegidos por el usuario. */
-    if(tabla[0].nombre == "Evolution VII Precargado"){
-        borrar(tabla);
-    }
+    inicioTabla();
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -168,9 +177,7 @@ function comprar(n, p, c){
 
 document.getElementById("agregar-varios").addEventListener("click", function(e){
 
-    if(tabla[0].nombre == "Evolution VII Precargado"){
-        borrar(tabla);
-    }
+    inicioTabla();
 
     let c = 1;
     let autosTop =[{
