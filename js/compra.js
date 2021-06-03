@@ -150,6 +150,8 @@ document.getElementById("btn-golf").addEventListener("click", function(e){
         comprar(nombre, precio, contadorF);
 });
 
+let UlimoAutoComprado = {};
+
 function comprar(n, p, c){
 
 /*Al hacer la primera compra la tabla precargada se reiniciara con los datos correspondientes, es decir, los elegidos por el usuario. */
@@ -166,7 +168,8 @@ function comprar(n, p, c){
 
     Top(nuevoAuto);
 
-    
+    UlimoAutoComprado = nuevoAuto;
+
     mostrar();
     total();
 }
@@ -201,6 +204,7 @@ document.getElementById("agregar-varios").addEventListener("click", function(e){
         Top(autosTop[i]);
     }
 
+
     mostrar();
     total();
 
@@ -233,10 +237,52 @@ document.getElementById("borrar").addEventListener("click", function(e){ borrar(
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-function borrar(t, n) {
+function borrar(t) {
     for (let i = t.length; i > 0; i--) {
         tabla.pop();
     }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+
+////////Boton de borrar utlimo////////////////////////////////////////////////////////////////////////////////////
+
+document.getElementById("borrar-ultimo").addEventListener("click", function(e) {
+    let ultimo = UlimoAutoComprado;
+    borrarUltimo(ultimo);
+    UlimoAutoComprado = {};
+});
+
+function borrarUltimo(u) {
+
+    let ultimo = u;
+    console.log(ultimo);
+
+        for (let  i = 0; i < tabla.length; i++) {
+            if(tabla[i].nombre == ultimo.nombre){
+                if(tabla[i].contador == 1){
+                    console.log("hay uno");
+                    tabla.splice(i, 1);
+                }else{
+                    if(tabla[i].contador > 1){
+                        console.log("hay mas");
+                        tabla[i].contador--;
+                    }
+                }
+            }
+        }
+        mostrar();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////
+
+////////Boton de pagar///////////////////////////////////////////////////////////////////////////////////
+
+document.getElementById("pagar").addEventListener("click", pago);
+
+function pago() {
+    alert("Muchas gracias por su compra!!");
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
