@@ -99,7 +99,7 @@ body{
         border: 0px;
         overflow-x: auto;
     }
-    #agregar-varios,#borrar{
+    #agregar-varios,#borrar,#borrar-ultimo,#pagar{
         display: flex;
         flex-direction: column;
         margin: auto;
