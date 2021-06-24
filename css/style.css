@@ -1,0 +1,328 @@
+/*Mobile View*/
+
+body{
+    background-color: lightblue;
+}
+/********************************************* Menu Responsive ************************************/
+    .MenuResponsive{
+        display:none;
+    }
+    #MenuRespo{
+        width: 100%;
+    }
+
+    .Navegacion-principal{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+
+ 
+    }
+/********************************************* INDEX ************************************/
+    h1{
+        text-transform: uppercase;
+        
+    }
+    .autos{
+        display: flex;
+        flex-direction: column;
+        background-color: #df9b07c6;
+        
+    }
+    .autos img{
+        margin: 0 auto;
+        max-width: 100%;
+        width: 80%;
+    }
+
+    .left,.right{
+        display: flex;
+        align-items: center;
+        background-color: #cacaca;
+        flex-direction:column;
+        text-transform: capitalize;
+        border-style: groove;
+        
+    }
+    li{
+        list-style: none;
+    }
+    .left img, .right  img{
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        width: 80%;
+    }
+    
+    
+    .left h2, .right h2{
+        border: lightblue outset;
+        
+    }
+    aside{
+        display: flex;
+        flex-direction:column;
+        border-style: groove;
+    }
+    
+/********************************************* CONTACTO ************************************/
+    fieldset{
+        display: flex;
+        flex-direction: column;
+    }
+    #btn-enviar{
+        max-width: 100%;
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 2%;
+        
+    }
+    .dato{
+        display:block;
+        max-width: 100%;
+        width: 80%;
+        margin: 0 auto;
+        background-color: lightgray;
+
+    }
+    legend {
+        text-align: center;
+    }
+    
+/********************************************* TABLA DINAMICA ************************************/
+    #tabla-comunYtabla-dinamica{
+        display: block;
+        flex-wrap: wrap;
+    }
+    
+    #tabla-dinamica, #tabla-comun{
+        border: 0px;
+        overflow-x: auto;
+    }
+    #agregar-varios,#borrar,#borrar-ultimo,#pagar{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 80%;
+    }
+/********************************************* TABLA  ************************************/
+    thead{
+        padding:10px;
+        background-color: #f5c814;
+    }
+    tr td{
+        padding: 5px;
+        margin: 50%;
+    }
+    table{
+        display:block;
+        overflow-x: auto;
+    }
+/********************************************* ESPECIFICACIONES-BMW ************************************/
+    .Especificaciones-bmw ,.bmw, .titulo-bmw{
+        display: flex;
+        max-width: 25rem;
+        width: 15rem;
+        flex-wrap: wrap;
+
+    }
+    .conteiner img{
+        display: flex;
+        max-width: 25rem;
+        width: 15rem;
+        margin: 0 auto;
+    }
+/********************************************* ENCABEZADO ************************************/
+    .Encabezado{
+        display: flex;
+        background-color: #3b7e92;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    a{
+        color: black;
+    }
+    .Navegacion-principal{
+        background-color: lightseagreen;
+        
+    }
+    
+    a:hover{
+        transition: all .2s;
+        border: lightgray 2px inset
+    }
+/********************************************* FOOTER ************************************/
+    footer{
+        text-transform: uppercase;
+        border-top: solid;
+        text-align: center;
+        background-color:#3b7e92 ;
+        
+    }
+/********************************************* TABLA COMPRA ************************************/
+    .total-estilo{
+        background-color: #3b7e92;
+        width: 100%;
+        border: 2px inset lightgray;
+        color: #f5c814;
+        font-size: 1.8rem;
+    }
+
+    .precio{
+        background-color: #3b7e92;
+        color: #f5c814;
+    }
+ /********************************************* DESKTOP-VIEW ************************************/
+@media only screen and (min-width:600px)
+    {
+ /********************************************* INDEX ************************************/
+        .left,.right{
+            display: flex;
+            align-items: center;
+            background-color: #cacaca;
+            flex-direction:column;
+            text-transform: capitalize;
+            border-style: groove;
+        }
+        .autos img{
+            display: flex;
+            flex-wrap: wrap;
+        }
+            .autos img:hover{
+                transition: all .4s;
+                transform: scale(1.1);
+            }
+            .informacion{
+            display: flex;
+            border-bottom: solid;
+            justify-content: space-around;
+        }
+        .left img, .right  img{
+            width: 42em;
+            height: 28em;
+        }
+
+        .Navegacion-principal{
+            display: flex;
+            padding: auto;
+            margin: auto;
+        }
+        .autos{
+            display: flex;
+            flex-direction: row;
+            background-color: #df9b07c6;
+            
+        }
+        .Encabezado{
+            background-color: #3b7e92;
+            margin-bottom: auto;
+        }
+        a{
+            color: black;
+        }
+        #Items-Menu{
+            display: flex;
+            margin: auto;
+        }
+        li {
+
+            list-style: none;
+            max-width: 100% ;
+            width: 80%;
+            
+            
+        }
+        a:hover{
+            transition: all .2s;
+            border: lightgray 2px inset
+        }
+ /********************************************* TFOOTER ************************************/
+        footer{
+            text-transform: uppercase;
+            border-top: solid;
+            text-align: center;
+            background-color:#3b7e92 ;
+            margin: auto;
+            margin-right: auto;
+        }
+        body{
+            background-color: lightblue;
+        }
+/********************************************* TABLA ************************************/
+        tr td{
+            padding: 5px;
+            margin: 50%;
+            border-style: solid;
+        }
+        table{
+            display: inline-block;
+            margin: 0 15%;
+            padding: auto;
+        }
+        img{
+            width: 300px;
+            height: 70%;
+        }
+/********************************************* TABLA DINAMICA ************************************/
+        #tabla-comunYtabla-dinamica{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #tabla-dinamica, #tabla-comun{
+            border: 0px;
+        }
+    /*ESPECIFICACIONES-BMW*/
+        .Especificaciones-bmw ,.bmw, .titulo-bmw{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+                .conteiner{
+                    display: flex;
+                    justify-content: space-around
+                }
+/********************************************* CONTACTO ************************************/
+                fieldset{
+                    display: flex;
+                    flex-direction: column;
+                }
+                #btn-enviar{
+                    max-width: 35%;
+                    margin-left: 10%;
+                    margin-bottom: 2%;
+                    
+                }
+                .dato{
+                    display:flex;
+                    width: 50%;
+                    background-color: lightgray;
+                    margin-left: 5%;
+                    margin-bottom: 2%;
+                }
+                legend {
+                    text-align: center;
+    }
+/********************************************* TOTAL COMPRA ************************************/
+                .total-estilo{
+                    background-color: #3b7e92;
+                    width: 100%;
+                    border: 2px inset lightgray;
+                    color: #f5c814;
+                    font-size: 1.8rem;
+                }
+                
+                .precio{
+                    background-color: #3b7e92;
+                    color: #f5c814;
+                }
+                
+                .Navegacion-principal{
+                    background-color: lightseagreen;
+                    
+                }
+                
+                #MenuRespo{
+                    display: none;
+                }
+            }   

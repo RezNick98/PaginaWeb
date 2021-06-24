@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/38116dd924.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="Encabezado">
+        <h1><i class="fas fa-car">CARS-MOTORS</i></h1>
+    </header>
+    <nav class="Navegacion-principal">
+        <button id="MenuRespo">Navegacion</button>
+        <ul id="Items-Menu">
+            <li><a href="index.html"><i class="fas fa-house-user">Home</i></a></li>
+            <li><a href="Especificaciones.html" ><i class="fas fa-book">Especificaciones</i></a></li>
+            <li><a href="Contacto.html"><i class="fas fa-comment-dots">Contacto</i></a></li>
+            <li><a><i class="fas fa-dollar-sign">Compra</i></a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <form id="form">
+                <div id="tabla-comunYtabla-dinamica">
+                    <table id="tabla-comun">
+                        <thead>
+                            <tr>
+                                <th>Modelo</th>
+                                <th>Especificaciones</th>
+                                <th>Precio</th>
+                                <th>Comprar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="nombre-evo">Evolution VII</td>
+                                <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
+                                <td id="valor-evo">100000</td>
+                                <td><button id="btn-evo">Comprar</button></td>
+                            </tr>
+                            <tr>
+                                <td id="nombre-supra">M4 Supra</td>
+                                <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
+                                <td id="valor-supra">150000</td>
+                                <td><button id="btn-supra">Comprar</button></td>
+                            </tr>
+                            <tr>
+                                <td id="nombre-m30">M3-m30</td>
+                                <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
+                                <td id="valor-m30">80000</td>
+                                <td><button id="btn-m30">Comprar</button></td>
+                            </tr>
+                        <tr>
+                            <td id="nombre-corsa">Chevrolet corsa</td>
+                            <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
+                            <td id="valor-corsa">8000</td>
+                            <td><button id="btn-corsa">Comprar</button></td>
+                        </tr>
+                        <tr>
+                            <td id="nombre-fox">Volkswagen Fox</td>
+                            <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
+                            <td id="valor-fox">20000</td>
+                            <td><button id="btn-fox">Comprar</button></td>
+                        </tr>
+                        <tr>
+                            <td id="nombre-golf">Volkswagen Golf Turbo</td>
+                            <td><button><a href="Especificaciones.html">Especificaciones</a></button></td>
+                            <td id="valor-golf">60000</td>
+                            <td><button id="btn-golf">Comprar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="tabla-dinamica">
+                    
+                </table>
+                <section class="total-estilo">
+                    <h3>El total de compra es:</h3>
+                    <p id="total"></p>
+                </section>
+            </div>
+                <button id="agregar-varios">Agregar premiums</button>
+                <button id="borrar">Borrar carrito</button>
+                <button id="borrar-ultimo">Borrar ultimo agregado</button>
+                <button id="pagar">Pagar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        cars-motors|2021 Todos los derechos reservados  
+    </footer>
+    <script src="js/compra.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
