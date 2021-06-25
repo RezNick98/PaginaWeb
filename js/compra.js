@@ -132,8 +132,16 @@ total();
 ////////////////////////////////////////////////////////////////////////////////////
 
 ////////Botones de comprar////////////////////////////////////////////////////////////////////////////////////
-
-    let contadorA = 0;
+    async function comprarVehiculo(){
+        let autos = {
+            
+        }
+        let res = await fetch(url,{
+            'method':'POST',
+            'headers':{'Content-type': 'application/json'}
+        })
+    }
+   /* let contadorA = 0;
 document.getElementById("btn-evo").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-evo").innerHTML;
     let precio = document.getElementById("valor-evo").innerHTML;
@@ -179,7 +187,7 @@ document.getElementById("btn-golf").addEventListener("click", function(e){
     let precio = document.getElementById("valor-golf").innerHTML;
         contadorF++;
         comprar(nombre, precio, contadorF, idGolf);
-});
+});*/
 
 /*Esta variable me va a identificar cual es el ultomo auto comprado */
 let UlimoAutoComprado = {};
