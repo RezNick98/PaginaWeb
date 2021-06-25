@@ -12,27 +12,58 @@ function noEnvia(e){
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-    let inicio = false;
+let inicio = false;
+
+let idEvo;
+let idSupra;
+let idM3;
+let idCorsa;
+let idFox;
+let idGolf;
+
 
 /*La tabla inicia precargada con un inicio de compra == 0 */
 
-let tabla =[
-    {
-        "nombre": "Evolution VII Precargado",
-        "precio": "100000",
-        "contador": "1"            
-    },
-    {
-        "nombre": "Chevrolet corsa",
-        "precio": "8000",
-        "contador": "1"                        
-    },
-    {
-        "nombre": "Volkswagen Fox",
-        "precio": "20000",
-        "contador": "1"                
-    },
-];
+let tabla =[];
+////////Fetch////////////////////////////////////////////////////////////////////////////////////
+const url = "https://60c6d7da19aa1e001769fcab.mockapi.io/api/Autos";
+async function obtenerDatos() {
+    try{
+        let res = await fetch(url);
+            let json = await res.json();
+                console.log(json);
+        for(const autos of json){
+            if(autos.nombre == "Evolution VII"){
+                idEvo = autos.id;
+            }
+            if(autos.nombre == "M4 Supra"){
+                idSupra = autos.id;
+            }
+            if(autos.nombre == "M3-m30"){
+                idM3 = autos.id;
+            }
+            if(autos.nombre == "Chevrolet corsa"){
+                idCorsa = autos.id;
+            }
+            if(autos.nombre == "Volkswagen Fox"){
+                idFox = autos.id;
+            }
+            if(autos.nombre == "Volkswagen Golf Turbo"){
+                idGolf = autos.id;
+            }
+            tabla.push(autos);
+        }
+    }catch(error){
+        console.log(error);
+    }
+
+    mostrar();
+    total();
+}
+
+obtenerDatos();
+
+////////////////////////////////////////////////////////////////////////////////////
 
 ////////Inicio verdadero de la tabla////////////////////////////////////////////////////////////////////////////////////
 function inicioTabla() {
@@ -107,7 +138,7 @@ document.getElementById("btn-evo").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-evo").innerHTML;
     let precio = document.getElementById("valor-evo").innerHTML;
         contadorA++;
-        comprar(nombre, precio, contadorA);
+        comprar(nombre, precio, contadorA, idEvo);
 });
 
     let contadorB = 0;
@@ -115,7 +146,7 @@ document.getElementById("btn-supra").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-supra").innerHTML;
     let precio = document.getElementById("valor-supra").innerHTML;
         contadorB++;
-        comprar(nombre, precio, contadorB);
+        comprar(nombre, precio, contadorB, idSupra);
 });
 
     let contadorC = 0
@@ -123,7 +154,7 @@ document.getElementById("btn-m30").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-m30").innerHTML;
     let precio = document.getElementById("valor-m30").innerHTML;
         contadorC++;
-        comprar(nombre, precio, contadorC);
+        comprar(nombre, precio, contadorC, idM3);
 });
 
     let contadorD = 0
@@ -131,7 +162,7 @@ document.getElementById("btn-corsa").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-corsa").innerHTML;
     let precio = document.getElementById("valor-corsa").innerHTML;
         contadorD++; 
-        comprar(nombre, precio, contadorD);
+        comprar(nombre, precio, contadorD, idCorsa);
 });
 
     let contadorE = 0
@@ -139,7 +170,7 @@ document.getElementById("btn-fox").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-fox").innerHTML;
     let precio = document.getElementById("valor-fox").innerHTML;
         contadorE++;
-        comprar(nombre, precio, contadorE);
+        comprar(nombre, precio, contadorE, idFox);
 });
 
     let contadorF = 0;
@@ -147,13 +178,13 @@ document.getElementById("btn-golf").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-golf").innerHTML;
     let precio = document.getElementById("valor-golf").innerHTML;
         contadorF++;
-        comprar(nombre, precio, contadorF);
+        comprar(nombre, precio, contadorF, idGolf);
 });
 
 /*Esta variable me va a identificar cual es el ultomo auto comprado */
 let UlimoAutoComprado = {};
 
-function comprar(n, p, c){
+function comprar(n, p, c, id)   {
 
 /*Al hacer la primera compra la tabla precargada se reiniciara con los datos correspondientes, es decir, los elegidos por el usuario. */
     inicioTabla();
@@ -162,6 +193,7 @@ function comprar(n, p, c){
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     let nuevoAuto ={
+        "id": id,
         "nombre": n,
         "precio": p,
         "contador": c,
@@ -185,16 +217,19 @@ document.getElementById("agregar-varios").addEventListener("click", function(e){
 
     let c = 1;
     let autosTop =[{
+        "id": idEvo,
         "nombre": "Evolution VII",
         "precio": "100000",
         "contador": c,
     },
     {
+        "id": idSupra,
         "nombre": "M4 Supra",
         "precio": "150000",
         "contador": c,
     },
     {
+        "id": idM3,
         "nombre": "M3-m30",
         "precio": "80000",
         "contador": c,
@@ -221,7 +256,7 @@ function Top(a) {
     for (let i = 0; i < tabla.length; i++) {
         if(a.nombre == tabla[i].nombre){
             x = true;
-            tabla[i].contador++;
+                tabla[i].contador++;
         }
     }
 
@@ -239,6 +274,7 @@ document.getElementById("borrar").addEventListener("click", function(e){ borrar(
 ////////////////////////////////////////////////////////////////////////////////////
 
 function borrar(t) {
+
     for (let i = t.length; i > 0; i--) {
         tabla.pop();
     }
@@ -257,7 +293,7 @@ document.getElementById("borrar-ultimo").addEventListener("click", function(e) {
 function borrarUltimo(u) {
 
     let ultimo = u;
-    console.log(ultimo);
+        console.log(ultimo);
 
         for (let  i = 0; i < tabla.length; i++) {
             if(tabla[i].nombre == ultimo.nombre){
