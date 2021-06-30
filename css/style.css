@@ -4,6 +4,12 @@ body{
     background-color: rgb(192, 185, 185);
     margin: 0px;
 }
+
+button{
+    border-radius: 10px;
+    border-left: 5px;
+    border-bottom: 5px;
+}
 /********************************************* Menu Responsive ************************************/
     .MenuResponsive{
         display:none;
