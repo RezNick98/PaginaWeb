@@ -240,55 +240,26 @@ async function modificarApi(a) {
 }
 
 document.getElementById("agregar-varios").addEventListener("click", function(e) {
-    id++;
+
+    let nombreA = document.getElementById("nombre-evo").innerHTML;
+    let precioA = document.getElementById("valor-evo").innerHTML;
         contadorA++;
-            contadorB++;
-                contadorC++;
-        agregarPremiums(id, contadorA, contadorB,contadorC);
+            id++;
+        comprar(nombreA, precioA, contadorA);
+
+    let nombreB = document.getElementById("nombre-supra").innerHTML;
+    let precioB = document.getElementById("valor-supra").innerHTML;
+        contadorB++;
+            id++;
+        comprar(nombreB, precioB, contadorB);
+
+    let nombreC = document.getElementById("nombre-m30").innerHTML;
+    let precioC = document.getElementById("valor-m30").innerHTML;
+        contadorC++;
+            id++;
+        comprar(nombreC, precioC, contadorC);
+       
 });
-
-function agregarPremiums(id, contadorA, contadorB,contadorC) {
-    
-    let premiumsA = {
-        "nombre": "Evolution VII",
-        "precio": 100000,
-        "contador": contadorA,
-        "id": id
-    };
-
-    id++;
-
-    UlimoAutoComprado.push(premiumsA);
-
-    Top(premiumsA);
-
-
-    let premiumsB = {
-        "nombre": "M4 Supra",
-        "precio": 150000,
-        "contador": contadorB,
-        "id": id,
-    };
-
-    id++
-
-    UlimoAutoComprado.push(premiumsB);
-
-    Top(premiumsB);
-
-    let premiumsC = {
-        "nombre": "M3-m30",
-        "precio": 80000,
-        "contador": contadorC,
-        "id": id
-    };
-
-    UlimoAutoComprado.push(premiumsC);
-
-    Top(premiumsC);
-
-    
-}
 
 function Top(a) {
      let x = false;
@@ -319,8 +290,14 @@ document.getElementById("borrar").addEventListener("click", function(e){ borrar(
 
 function borrar(t) {
 
+    for (const autos of UlimoAutoComprado) {
+        let idA = autos.id;
+            BorrarApi(idA);
+    }
+
     for (let i = t.length; i > 0; i--) {
-        tabla.pop();
+                tabla.pop();
+                    UlimoAutoComprado.pop();
     }
 
 }
@@ -330,6 +307,7 @@ function borrar(t) {
 ////////Boton de borrar utlimo////////////////////////////////////////////////////////////////////////////////////
 
 document.getElementById("borrar-ultimo").addEventListener("click", function(e) {
+    id--;
     let ultimo = [];
     ultimo = UlimoAutoComprado;
     borrarUltimo(ultimo);
@@ -359,11 +337,12 @@ function borrarUltimo(u) {
                         console.log("hay mas");
                             tabla[i].contador--;
                                 BorrarApi(id);
-                                    UlimoAutoComprado.splice(pos, 1)
+                                    UlimoAutoComprado.splice(pos, 1);
                     }
                 }
             }
         }
+
         mostrar();
         total();
 }
