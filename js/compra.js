@@ -50,6 +50,10 @@ async function BorrarApi(id) {
     }
 }
 
+function Borrar(pos, arr) {
+    arr.splice(pos, 1);
+}
+
 /*La tabla inicia precargada con un inicio de compra == 0 */
 
 let inicioTabla = false;
@@ -69,27 +73,63 @@ function mostrar() {
     t.innerHTML = " ";
 
     let style = 0;
-    let idMod = 0;
-    let idEliminar = 0;
 
     for (const i of tabla) {
 
         t.innerHTML += `<thead>
             <th>Modelo</th>
             <th>Precio</th>
+            <th>Contador</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
         </thead>
         <tbody>
             <td> ${i.nombre} </td>
             <td id="${style}"> ${i.precio} </td>
             <td> ${i.contador} </td>
-            <td> <button id="mod${idMod}">Modificar</button> </td>
-            <td> <button id="eliminar${idEliminar}">Eliminar</button> </td>
+            <td> <input type="button" value="${id}" class="btnModificar${id}"> </td>
+            <td> <input type="button" value="${id}" class="btnEliminar${id}"> </td>
         </tbody>
         `
+        document.querySelector(`.btnModificar${id}`).addEventListener("click", function(){
+            let value = document.querySelector(`.btnModificar${id}`).value;
+                    buscarMod(value);
+        });
+        document.querySelector(`.btnEliminar${id}`).addEventListener("click", function(){
+            let value = document.querySelector(`.btnEliminar${id}`).value;
+                buscarEliminar(value);
+        });
         colorear(style);
         style++;
-        idMod++;
-        idEliminar++;
+    }
+    
+}
+
+function buscarMod(v) {
+    for (const autos of tabla) {
+        if(v == autos.id){
+            let c = document.getElementById("autoCambio").value;
+                for (const auto of tabla) {
+                    if(c == auto.nombre){
+                        let modificacion = {
+                            "nombre": c,
+                            "precio": auto.precio,
+                            "contador": auto.contador,
+                            "id": v,
+                        }
+                        modificarApi(modificacion);
+                    }
+                }
+                
+        }
+    }
+}
+
+function buscarEliminar(v) {
+    for (const autos of tabla) {
+        if(v == autos.id){
+            BorrarApi(v);
+        }
     }
     
 }
