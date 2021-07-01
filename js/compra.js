@@ -133,8 +133,6 @@ function colorear(s){
 document.getElementById("filtro").addEventListener("click", filtradoTabla);
 
 function filtradoTabla() {
-    let t = document.getElementById("tablaFiltro");
-        t.innerHTML = " ";
     let nombre = document.getElementById("autoCambio").value;
 
         let arr =[]
