@@ -10,6 +10,33 @@ function noEnvia(e){
     console.log("funciona");
 }
 
+let listaNombresYprecios = [
+    {
+        "nombre": "Evolution VII",
+        "precio": 100000
+    },
+    {
+        "nombre": "M4 Supra",
+        "precio": 150000
+    },
+    {
+        "nombre": "M3-m30",
+        "precio": 80000
+    },
+    {
+        "nombre": "Chevrolet corsa",
+        "precio": 8000
+    },
+    {
+        "nombre": "Volkswagen Fox",
+        "precio": 20000
+    },
+    {
+        "nombre": "Volkswagen Golf Turbo",
+        "precio": 60000
+    }
+]
+
 ////////////////////////////////////////////////////////////////////////////////////
 
 ////////Fetch////////////////////////////////////////////////////////////////////////////////////
@@ -21,6 +48,8 @@ async function obtenerDatos() {
                 console.log(json);
         for(const autos of json){
             tabla.push(autos);
+                UlimoAutoComprado.push(autos);
+                    id = UlimoAutoComprado.length
         }
     }catch(error){
         console.log(error);
@@ -87,52 +116,16 @@ function mostrar() {
             <td> ${i.nombre} </td>
             <td id="${style}"> ${i.precio} </td>
             <td> ${i.contador} </td>
-            <td> <input type="button" value="${id}" class="btnModificar${id}"> </td>
-            <td> <input type="button" value="${id}" class="btnEliminar${id}"> </td>
         </tbody>
         `
-        document.querySelector(`.btnModificar${id}`).addEventListener("click", function(){
-            let value = document.querySelector(`.btnModificar${id}`).value;
-                    buscarMod(value);
-        });
-        document.querySelector(`.btnEliminar${id}`).addEventListener("click", function(){
-            let value = document.querySelector(`.btnEliminar${id}`).value;
-                buscarEliminar(value);
-        });
+        
+
         colorear(style);
         style++;
     }
     
 }
 
-function buscarMod(v) {
-    for (const autos of tabla) {
-        if(v == autos.id){
-            let c = document.getElementById("autoCambio").value;
-                for (const auto of tabla) {
-                    if(c == auto.nombre){
-                        let modificacion = {
-                            "nombre": c,
-                            "precio": auto.precio,
-                            "contador": auto.contador,
-                            "id": v,
-                        }
-                        modificarApi(modificacion);
-                    }
-                }
-                
-        }
-    }
-}
-
-function buscarEliminar(v) {
-    for (const autos of tabla) {
-        if(v == autos.id){
-            BorrarApi(v);
-        }
-    }
-    
-}
 
 mostrar();
 
@@ -144,6 +137,48 @@ function colorear(s){
             if(p > 70000){
                 document.getElementById(estilo).classList.add("precio");
             }
+}
+
+function mostrarIndividual(arr) {
+    let t = document.getElementById("tablaFiltro");
+
+    t.innerHTML = " "
+
+    for (const auto of arr) {
+
+        t.innerHTML += `<h1>Datos</h1>
+        <thead>
+            <th>Modelo</th>
+            <th>Precio</th>
+            <th>Contador</th>
+        </thead>
+        <tbody>
+            <td> ${auto.nombre} </td>
+            <td> ${auto.precio} </td>
+            <td> ${auto.contador} </td>
+        </tbody>
+        `
+
+
+    }
+}
+
+document.getElementById("filtro").addEventListener("click", filtradoTabla);
+
+function filtradoTabla() {
+    let t = document.getElementById("tablaFiltro");
+        t.innerHTML = " ";
+    let nombre = document.getElementById("autoCambio").value;
+
+        let arr =[]
+
+        for (const autos of tabla) {
+            if(nombre == autos.nombre){
+                arr.push(autos);
+                    mostrarIndividual(arr);
+            }
+        }
+        arr.pop();
 }
 
 ////////total////////////////////////////////////////////////////////////////////////////////////
