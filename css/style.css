@@ -273,6 +273,7 @@ button{
             border-style: solid;
         }
         table{
+            width: 40rem;
             display: inline-block;
             margin: 0 15%;
             padding: auto;

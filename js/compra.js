@@ -1,7 +1,5 @@
 "use strict"
 
-////////Formulario que no envia////////////////////////////////////////////////////////////////////////////////////
-
 let form = document.querySelector("#form");
 form.addEventListener("submit", noEnvia);
 
@@ -37,9 +35,7 @@ let listaNombresYprecios = [
     }
 ]
 
-////////////////////////////////////////////////////////////////////////////////////
 
-////////Fetch////////////////////////////////////////////////////////////////////////////////////
 const url = "https://60c6d7da19aa1e001769fcab.mockapi.io/api/Autos";
 async function obtenerDatos() {
     try{
@@ -62,8 +58,6 @@ async function obtenerDatos() {
 obtenerDatos();
 
 let id = 0;
-
-////////////////////////////////////////////////////////////////////////////////////
 
 async function BorrarApi(id) {
 
@@ -93,6 +87,7 @@ function mostrar(a) {
     t.innerHTML = " ";
 
     let style = 0;
+    let pos = 0;
 
     for (const i of a) {
 
@@ -107,16 +102,74 @@ function mostrar(a) {
             <td> ${i.nombre} </td>
             <td id="${style}"> ${i.precio} </td>
             <td> ${i.contador} </td>
+            <td> <input type="button" id="Modificar${id}" value="${i.nombre}"> </td>
+            <td> <input type="button" id="Eliminar${id}" value="${i.nombre}"> </td>
         </tbody>
         `
-        
+        setTimeout(function() {
+            crearEventoModificar();
+        }, 2000);
+
+        setTimeout(function() {
+            crearEventoEliminar(pos); 
+        }, 2000)
 
         colorear(style);
         style++;
+        pos++;
     }
     
 }
 
+function crearEventoModificar() {
+    document.getElementById(`Modificar${id}`).addEventListener("click", function() {
+        let nombre = document.getElementById(`Modificar${id}`).value;
+        let elegiste = document.getElementById("autoCambio").value
+            modificarBoton(nombre, elegiste);
+    });
+}
+
+function modificarBoton(n, e) {
+    let nombre = " ";
+    let precio = 0;
+    for (const autos of tabla) {
+        if(n == autos.nombre){
+            console.log(autos.nombre);
+            for (const autoElegido of listaNombresYprecios) {
+                if(e == autoElegido.nombre){
+                    nombre = autoElegido.nombre;
+                    precio = autoElegido.precio;
+                }
+            }
+                autos.nombre = nombre;
+                autos.precio = precio;
+                    modificarApi(autos);
+        }
+    }
+    mostrar(tabla);
+}
+
+function crearEventoEliminar(p) {
+    document.getElementById(`Modificar${id}`).addEventListener("click", function() {
+        let nombre = document.getElementById(`Modificar${id}`).value;
+        let pos = p;
+            eliminarBoton(nombre, pos);
+    });
+}
+
+function eliminarBoton(n, p) {
+    let ida = 0;
+    let pos = p;
+    for (const autos of tabla) {
+        if(n == autos.nombre){
+            ida = autos.id;
+                tabla.splice(pos, 1);
+                    UlimoAutoComprado.splice(pos, 1);
+                        BorrarApi(ida);
+        }
+    }
+    mostrar(tabla);
+}
 
 mostrar(tabla);
 
@@ -146,8 +199,6 @@ function filtradoTabla() {
         arr.pop();
 }
 
-////////total////////////////////////////////////////////////////////////////////////////////////
-
 function total() {
     let valor = 0;
     let valorMulti = 0;
@@ -164,11 +215,8 @@ function total() {
 
 total();
 
-////////////////////////////////////////////////////////////////////////////////////
-
 let UlimoAutoComprado = [];
 
-////////Botones de comprar////////////////////////////////////////////////////////////////////////////////////
 let contadorA = 0;
 document.getElementById("btn-evo").addEventListener("click", function(e){
     let nombre = document.getElementById("nombre-evo").innerHTML;
@@ -223,8 +271,6 @@ document.getElementById("btn-golf").addEventListener("click", function(e){
         comprar(nombre, precio, contadorF);
 });
 
-////////////////////////////////////////////////////////////////////////////////////
-
 function comprar(n,p,c) {
 
     let nuevoAuto ={
@@ -241,8 +287,6 @@ function comprar(n,p,c) {
     mostrar(tabla);
     total();
 }
-
-////////Busco iguales y si no encuentro agrego a la tabla////////////////////////////////////////////////////////////////////////////////////
 
 async function agregarApi(a){
     let auto = a;
@@ -317,14 +361,28 @@ function Top(a) {
      }
 }
 
+document.getElementById("modificarNoDinamico").addEventListener("click", modificarNoDinamico);
 
-////////////////////////////////////////////////////////////////////////////////////
+function modificarNoDinamico() {
+    let nombre = document.getElementById("autoCambio").value;
+    let elegiste = document.getElementById("autoParaModificar").value;
+        modificarBoton(nombre, elegiste);
+}
 
-////////Boton de borrar carrito////////////////////////////////////////////////////////////////////////////////////
+document.getElementById("eliminarNoDinamico").addEventListener("click", eliminarNoDinamico);
+
+function eliminarNoDinamico() {
+    let nombre = document.getElementById("autoCambio").value;
+    let pos = 0;
+        for (const autos of tabla) {
+            if(nombre == autos.nombre){
+                pos = autos.id;
+                    eliminarBoton(nombre, pos);
+            }
+        }
+}
 
 document.getElementById("borrar").addEventListener("click", function(e){ borrar(tabla); mostrar(tabla); total();});
-
-////////////////////////////////////////////////////////////////////////////////////
 
 function borrar(t) {
 
@@ -339,10 +397,6 @@ function borrar(t) {
     }
 
 }
-
-////////////////////////////////////////////////////////////////////////////////////
-
-////////Boton de borrar utlimo////////////////////////////////////////////////////////////////////////////////////
 
 document.getElementById("borrar-ultimo").addEventListener("click", function(e) {
     id--;
@@ -385,15 +439,8 @@ function borrarUltimo(u) {
         total();
 }
 
-
-////////////////////////////////////////////////////////////////////////////////////
-
-////////Boton de pagar///////////////////////////////////////////////////////////////////////////////////
-
 document.getElementById("pagar").addEventListener("click", pago);
 
 function pago() {
     alert("Muchas gracias por su compra!!");
 }
-
-////////////////////////////////////////////////////////////////////////////////////
