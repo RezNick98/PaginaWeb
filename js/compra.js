@@ -55,7 +55,7 @@ async function obtenerDatos() {
         console.log(error);
     }
 
-    mostrar();
+    mostrar(tabla);
     total();
 }
 
@@ -96,14 +96,14 @@ let inicioTabla = false;
 
 let tabla =[];
 
-function mostrar() {
+function mostrar(a) {
     let t = document.getElementById("tabla-dinamica");
 
     t.innerHTML = " ";
 
     let style = 0;
 
-    for (const i of tabla) {
+    for (const i of a) {
 
         t.innerHTML += `<thead>
             <th>Modelo</th>
@@ -127,7 +127,7 @@ function mostrar() {
 }
 
 
-mostrar();
+mostrar(tabla);
 
 function colorear(s){
 
@@ -137,30 +137,6 @@ function colorear(s){
             if(p > 70000){
                 document.getElementById(estilo).classList.add("precio");
             }
-}
-
-function mostrarIndividual(arr) {
-    let t = document.getElementById("tablaFiltro");
-
-    t.innerHTML = " "
-
-    for (const auto of arr) {
-
-        t.innerHTML += `<h1>Datos</h1>
-        <thead>
-            <th>Modelo</th>
-            <th>Precio</th>
-            <th>Contador</th>
-        </thead>
-        <tbody>
-            <td> ${auto.nombre} </td>
-            <td> ${auto.precio} </td>
-            <td> ${auto.contador} </td>
-        </tbody>
-        `
-
-
-    }
 }
 
 document.getElementById("filtro").addEventListener("click", filtradoTabla);
@@ -175,7 +151,7 @@ function filtradoTabla() {
         for (const autos of tabla) {
             if(nombre == autos.nombre){
                 arr.push(autos);
-                    mostrarIndividual(arr);
+                    mostrar(arr);
             }
         }
         arr.pop();
@@ -275,7 +251,7 @@ function comprar(n,p,c) {
 
     Top(nuevoAuto);
 
-    mostrar();
+    mostrar(tabla);
     total();
 }
 
@@ -359,7 +335,7 @@ function Top(a) {
 
 ////////Boton de borrar carrito////////////////////////////////////////////////////////////////////////////////////
 
-document.getElementById("borrar").addEventListener("click", function(e){ borrar(tabla); mostrar(); total();});
+document.getElementById("borrar").addEventListener("click", function(e){ borrar(tabla); mostrar(tabla); total();});
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -418,7 +394,7 @@ function borrarUltimo(u) {
             }
         }
 
-        mostrar();
+        mostrar(tabla);
         total();
 }
 
