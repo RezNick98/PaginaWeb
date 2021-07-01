@@ -85,15 +85,6 @@ function Borrar(pos, arr) {
 
 /*La tabla inicia precargada con un inicio de compra == 0 */
 
-let inicioTabla = false;
-
-// function inicio() {
-//     if(inicioTabla == false){
-//         inicioTabla = true;
-//             borrar(tabla);
-//     }
-// }
-
 let tabla =[];
 
 function mostrar(a) {
@@ -237,8 +228,6 @@ document.getElementById("btn-golf").addEventListener("click", function(e){
 ////////////////////////////////////////////////////////////////////////////////////
 
 function comprar(n,p,c) {
-
-    // inicio();
 
     let nuevoAuto ={
         "nombre": n,
