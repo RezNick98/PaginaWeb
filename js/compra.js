@@ -8,439 +8,151 @@ function noEnvia(e){
     console.log("funciona");
 }
 
-let listaNombresYprecios = [
-    {
-        "nombre": "Evolution VII",
-        "precio": 100000
-    },
-    {
-        "nombre": "M4 Supra",
-        "precio": 150000
-    },
-    {
-        "nombre": "M3-m30",
-        "precio": 80000
-    },
-    {
-        "nombre": "Chevrolet corsa",
-        "precio": 8000
-    },
-    {
-        "nombre": "Volkswagen Fox",
-        "precio": 20000
-    },
-    {
-        "nombre": "Volkswagen Golf Turbo",
-        "precio": 60000
-    }
-]
+const urlAutos = `http://localhost/tpe/PaginaWeb/api/autos`;
+const urlCarrito = `http://localhost/tpe/PaginaWeb/api/carrito`;
+const result = document.getElementById("total");
 
+getAutos(urlAutos);
+getCarrito(urlCarrito);
 
-const url = "https://60c6d7da19aa1e001769fcab.mockapi.io/api/Autos";
-async function obtenerDatos() {
+async function getAutos(url){
     try{
-        let res = await fetch(url);
-            let json = await res.json();
-                console.log(json);
-        for(const autos of json){
-            tabla.push(autos);
-                UlimoAutoComprado.push(autos);
-                    id = UlimoAutoComprado.length
+        let res = await fetch(`${url}`);
+        console.log(res);
+        if(res.status == 200){
+            console.log(res);
+            let tablaAutosDisponibles = await res.json();
+            let section = document.getElementById("tablaAutosDisponibles");
+                section.innerHTML = " ";
+
+            for (const auto of tablaAutosDisponibles){
+                let id = auto.Id;
+                let modelo = auto.Modelo;
+                let pais = auto.Pais_de_origen;
+                let precio = auto.Precio;
+                    section.innerHTML +=
+                `
+                <table>
+                    <thead>
+                        <th>Modelo</th>
+                        <th>Pais</th>
+                        <th>Precio</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>${modelo}</td>
+                            <td>${pais}</td>
+                            <td>${precio}</td>
+                            <td><button id="AgregarAlCarrito${id}">Agregar al carrito</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                `
+                console.log(id);
+
+                setTimeout(function(){
+                    document.getElementById(`AgregarAlCarrito${id}`).addEventListener("click", function(){
+                        agregar(id, modelo, pais, precio);
+                    });
+                }, 1)
+            }
+        }
+    }catch(error){
+        console.log(error)
+    }
+}
+
+function agregar(id, modelo, pais, precio){
+    let auto = {
+        "Modelo": modelo,
+        "Pais_de_origen": pais,
+        "Precio": precio,
+        "Id_auto_fk": id
+    }
+    console.log(auto);
+
+    sendAuto(auto);
+}
+
+async function sendAuto(auto){
+    try{
+        let res = await fetch(`${urlCarrito}`, {
+            "method": "POST",
+            "headers": {"Content-type": "application/json"},
+            "body": JSON.stringify(auto)
+        });
+        console.log(res);
+            if(res.status === 201){
+                console.log("Se posteo con exito");
+                getCarrito(urlCarrito);
+            }
+        }catch(error){
+            console.log(error);
+        }
+}
+
+async function getCarrito(url){
+    try{
+        let res = await fetch(`${url}`);
+        result.innerHTML = 0;
+        if(res.status == 200){
+            console.log(res);
+            let tablaCarrito = await res.json();
+            console.log(tablaCarrito);
+            let section = document.getElementById("tablaCarritoDeCompras");
+            let total = 0;
+                section.innerHTML = " ";
+            for (const auto of tablaCarrito){
+                let id = auto.Id;
+                let modelo = auto.Modelo;
+                let pais = auto.Pais_de_origen;
+                let precio = auto.Precio;
+                let idAuto = auto.Id_auto_fk;
+                    section.innerHTML +=
+                `
+                <table>
+                    <thead>
+                        <th>Modelo</th>
+                        <th>Pais</th>
+                        <th>Precio</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>${modelo}</td>
+                            <td>${pais}</td>
+                            <td>${precio}</td>
+                            <td><button id="EliminarDelCarrito${id}">Eliminar del carrito</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                `
+                console.log(id);
+                total = (total + Number(precio));
+                result.innerHTML = total;
+                console.log(total);
+                setTimeout(function(){
+                    document.getElementById(`EliminarDelCarrito${id}`).addEventListener("click", function(){
+                        eliminar(url, id);
+                    });
+                }, 1);
+            }
         }
     }catch(error){
         console.log(error);
     }
-
-    mostrar(tabla);
-    total();
 }
 
-obtenerDatos();
-
-let id = 0;
-
-async function BorrarApi(id) {
-
+async function eliminar(url, id){
     try{
         let res = await fetch(`${url}/${id}`, {
             "method": "DELETE"
         });
-            if(res.status === 200){
-                console.log("Borrado carrito");
+
+            if(res.status == 200){
+                console.log("Eliminado con exito");
+                getCarrito(url);
             }
     }catch(error){
         console.log(error);
     }
-}
-
-function Borrar(pos, arr) {
-    arr.splice(pos, 1);
-}
-
-/*La tabla inicia precargada con un inicio de compra == 0 */
-
-let tabla =[];
-
-function mostrar(a) {
-    let t = document.getElementById("tabla-dinamica");
-
-    t.innerHTML = " ";
-
-    let style = 0;
-    let pos = 0;
-
-    for (const i of a) {
-
-        t.innerHTML += `<thead>
-            <th>Modelo</th>
-            <th>Precio</th>
-            <th>Contador</th>
-            <th>Modificar</th>
-            <th>Eliminar</th>
-        </thead>
-        <tbody>
-            <td> ${i.nombre} </td>
-            <td id="${style}"> ${i.precio} </td>
-            <td> ${i.contador} </td>
-            <td> <input type="button" id="Modificar${id}" value="${i.nombre}"> </td>
-            <td> <input type="button" id="Eliminar${id}" value="${i.nombre}"> </td>
-        </tbody>
-        `
-        setTimeout(function() {
-            crearEventoModificar();
-        }, 2000);
-
-        setTimeout(function() {
-            crearEventoEliminar(pos); 
-        }, 2000)
-
-        colorear(style);
-        style++;
-        pos++;
-    }
-    
-}
-
-function crearEventoModificar() {
-    document.getElementById(`Modificar${id}`).addEventListener("click", function() {
-        let nombre = document.getElementById(`Modificar${id}`).value;
-        let elegiste = document.getElementById("autoCambio").value
-            modificarBoton(nombre, elegiste);
-    });
-}
-
-function modificarBoton(n, e) {
-    let nombre = " ";
-    let precio = 0;
-    for (const autos of tabla) {
-        if(n == autos.nombre){
-            console.log(autos.nombre);
-            for (const autoElegido of listaNombresYprecios) {
-                if(e == autoElegido.nombre){
-                    nombre = autoElegido.nombre;
-                    precio = autoElegido.precio;
-                }
-            }
-                autos.nombre = nombre;
-                autos.precio = precio;
-                    modificarApi(autos);
-        }
-    }
-    mostrar(tabla);
-}
-
-function crearEventoEliminar(p) {
-    document.getElementById(`Modificar${id}`).addEventListener("click", function() {
-        let nombre = document.getElementById(`Modificar${id}`).value;
-        let pos = p;
-            eliminarBoton(nombre, pos);
-    });
-}
-
-function eliminarBoton(n, p) {
-    let ida = 0;
-    let pos = p;
-    for (const autos of tabla) {
-        if(n == autos.nombre){
-            ida = autos.id;
-                tabla.splice(pos, 1);
-                    UlimoAutoComprado.splice(pos, 1);
-                        BorrarApi(ida);
-        }
-    }
-    mostrar(tabla);
-}
-
-mostrar(tabla);
-
-function colorear(s){
-
-    let estilo = String(s);
-       let pos = document.getElementById(estilo);
-        let p = Number(pos.innerHTML);
-            if(p > 70000){
-                document.getElementById(estilo).classList.add("precio");
-            }
-}
-
-document.getElementById("filtro").addEventListener("click", filtradoTabla);
-
-function filtradoTabla() {
-    let nombre = document.getElementById("autoCambio").value;
-
-        let arr =[]
-
-        for (const autos of tabla) {
-            if(nombre == autos.nombre){
-                arr.push(autos);
-                    mostrar(arr);
-            }
-        }
-        arr.pop();
-}
-
-function total() {
-    let valor = 0;
-    let valorMulti = 0;
-
-    for (let i = 0; i < tabla.length; i++) {
-        valorMulti = Number(tabla[i].precio) * Number(tabla[i].contador);
-        valor += valorMulti;
-    }
-
-    console.log(valor);
-
-    document.getElementById("total").innerHTML = "$" + valor;
-}
-
-total();
-
-let UlimoAutoComprado = [];
-
-let contadorA = 0;
-document.getElementById("btn-evo").addEventListener("click", function(e){
-    let nombre = document.getElementById("nombre-evo").innerHTML;
-    let precio = document.getElementById("valor-evo").innerHTML;
-        contadorA++;
-            id++;
-        comprar(nombre, precio, contadorA);
-});
-
-    let contadorB = 0;
-document.getElementById("btn-supra").addEventListener("click", function(e){
-    let nombre = document.getElementById("nombre-supra").innerHTML;
-    let precio = document.getElementById("valor-supra").innerHTML;
-        contadorB++;
-            id++;
-        comprar(nombre, precio, contadorB);
-});
-
-    let contadorC = 0
-document.getElementById("btn-m30").addEventListener("click", function(e){
-    let nombre = document.getElementById("nombre-m30").innerHTML;
-    let precio = document.getElementById("valor-m30").innerHTML;
-        contadorC++;
-            id++;
-        comprar(nombre, precio, contadorC);
-});
-
-    let contadorD = 0
-document.getElementById("btn-corsa").addEventListener("click", function(e){
-    let nombre = document.getElementById("nombre-corsa").innerHTML;
-    let precio = document.getElementById("valor-corsa").innerHTML;
-        contadorD++;
-            id++;
-        comprar(nombre, precio, contadorD);
-});
-
-    let contadorE = 0
-document.getElementById("btn-fox").addEventListener("click", function(e){
-    let nombre = document.getElementById("nombre-fox").innerHTML;
-    let precio = document.getElementById("valor-fox").innerHTML;
-        contadorE++;
-            id++;
-        comprar(nombre, precio, contadorE);
-});
-
-    let contadorF = 0;
-document.getElementById("btn-golf").addEventListener("click", function(e){
-    let nombre = document.getElementById("nombre-golf").innerHTML;
-    let precio = document.getElementById("valor-golf").innerHTML;
-        contadorF++;
-            id++;
-        comprar(nombre, precio, contadorF);
-});
-
-function comprar(n,p,c) {
-
-    let nuevoAuto ={
-        "nombre": n,
-        "precio": Number(p),
-        "contador": Number(c),
-        "id": id,
-    };
-
-    UlimoAutoComprado.push(nuevoAuto);
-
-    Top(nuevoAuto);
-
-    mostrar(tabla);
-    total();
-}
-
-async function agregarApi(a){
-    let auto = a;
-
-    try{
-        let res = await fetch(url, {
-            "method": "POST",
-            "headers": {"Content-type": "application/json"},
-            "body": JSON.stringify(auto)
-        })
-            if(res.status === 201){
-                console.log("Agregado al carrito");
-            }
-    }catch(error){
-        console.log(error);
-    }
-}
-
-async function modificarApi(a) {
-
-    try{
-        let res = await fetch(`${url}/${a.id}`, {
-            "method": "PUT",
-            "headers": {"Content-type": "application/json"},
-            "body": JSON.stringify(a)
-        });
-        if(res.status === 200){
-            console.log("modificado");
-        }
-    }catch(error){
-        console.log(error);
-    }
-}
-
-document.getElementById("agregar-varios").addEventListener("click", function(e) {
-
-    let nombreA = document.getElementById("nombre-evo").innerHTML;
-    let precioA = document.getElementById("valor-evo").innerHTML;
-        contadorA++;
-            id++;
-        comprar(nombreA, precioA, contadorA);
-
-    let nombreB = document.getElementById("nombre-supra").innerHTML;
-    let precioB = document.getElementById("valor-supra").innerHTML;
-        contadorB++;
-            id++;
-        comprar(nombreB, precioB, contadorB);
-
-    let nombreC = document.getElementById("nombre-m30").innerHTML;
-    let precioC = document.getElementById("valor-m30").innerHTML;
-        contadorC++;
-            id++;
-        comprar(nombreC, precioC, contadorC);
-       
-});
-
-function Top(a) {
-     let x = false;
-
-    for (let i = 0; i < tabla.length; i++) {
-         if(a.nombre == tabla[i].nombre){
-             x = true;
-                 tabla[i].contador++;
-                 let auto = tabla[i];
-                    agregarApi(auto);
-         }
-     }
-
-     if(x == false){
-        agregarApi(a);
-            tabla.push(a);
-     }
-}
-
-document.getElementById("modificarNoDinamico").addEventListener("click", modificarNoDinamico);
-
-function modificarNoDinamico() {
-    let nombre = document.getElementById("autoCambio").value;
-    let elegiste = document.getElementById("autoParaModificar").value;
-        modificarBoton(nombre, elegiste);
-}
-
-document.getElementById("eliminarNoDinamico").addEventListener("click", eliminarNoDinamico);
-
-function eliminarNoDinamico() {
-    let nombre = document.getElementById("autoCambio").value;
-    let pos = 0;
-        for (const autos of tabla) {
-            if(nombre == autos.nombre){
-                pos = autos.id;
-                    eliminarBoton(nombre, pos);
-            }
-        }
-}
-
-document.getElementById("borrar").addEventListener("click", function(e){ borrar(tabla); mostrar(tabla); total();});
-
-function borrar(t) {
-
-    for (const autos of UlimoAutoComprado) {
-        let idA = autos.id;
-            BorrarApi(idA);
-    }
-
-    for (let i = t.length; i > 0; i--) {
-                tabla.pop();
-                    UlimoAutoComprado.pop();
-    }
-
-}
-
-document.getElementById("borrar-ultimo").addEventListener("click", function(e) {
-    id--;
-    let ultimo = [];
-    ultimo = UlimoAutoComprado;
-    borrarUltimo(ultimo);
-    ultimo = [];
-});
-
-function borrarUltimo(u) {
-
-    let ultimo = [];
-        ultimo = u;
-
-    let uComprado = {};
-    let pos = ultimo.length - 1;
-        uComprado = ultimo[pos];
-
-    let id = uComprado.id;
-
-        for (let  i = 0; i < tabla.length; i++) {
-            if(tabla[i].nombre == uComprado.nombre){
-                if(tabla[i].contador == 1){
-                    console.log("hay uno");
-                    BorrarApi(id);
-                        tabla.splice(i, 1);
-                            UlimoAutoComprado.splice(pos, 1);
-                }else{
-                    if(tabla[i].contador > 1){
-                        console.log("hay mas");
-                            tabla[i].contador--;
-                                BorrarApi(id);
-                                    UlimoAutoComprado.splice(pos, 1);
-                    }
-                }
-            }
-        }
-
-        mostrar(tabla);
-        total();
-}
-
-document.getElementById("pagar").addEventListener("click", pago);
-
-function pago() {
-    alert("Muchas gracias por su compra!!");
 }

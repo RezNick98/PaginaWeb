@@ -108,36 +108,43 @@ button{
     }
     
 /********************************************* TABLA DINAMICA ************************************/
-    #tabla-comunYtabla-dinamica{
-        display: block;
-        flex-wrap: wrap;
-    }
-    
-    #tabla-dinamica, #tabla-comun{
-        border: 0px;
-        overflow-x: auto;
-    }
-    #agregar-varios,#borrar,#borrar-ultimo,#pagar{
+    .contenedor{
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
-        margin: auto;
-        width: 80%;
     }
-/********************************************* TABLA  ************************************/
-    thead{
-        padding:10px;
-        background-color: rgb(231, 227, 227);
+    .autosDisponibles{
+        display: flex;
+        justify-content: center;
     }
-    tr td{
-        padding: 5px;
-        margin: 50%;
+    .carrito{
+        height: 10rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
     table{
-        display:block;
-        overflow-x: auto;
-        box-shadow: -5px 5px 5px rgb(107, 105, 105);
-        margin-bottom: 1rem;
+        border-bottom: 5px black solid;
     }
+    thead{
+        background-color: rgb(179, 27, 27);
+        color: rgb(192, 185, 185);
+    }
+    
+/********************************************* LISTA ESPECIFICACIONES  ************************************/
+
+    .autosEspecificaciones{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .listaAuto{
+        background-color: rgb(179, 27, 27);
+        color: rgb(192, 185, 185);
+    }
+
 /********************************************* ESPECIFICACIONES-BMW ************************************/
     .Especificaciones-bmw ,.bmw, .titulo-bmw{
         display: flex;
@@ -173,9 +180,12 @@ button{
         text-align: center;
         background-color:rgb(179, 27, 27) ;
         color: rgb(192, 185, 185);
+        width: 100%;
     }
 /********************************************* TABLA COMPRA ************************************/
     .total-estilo{
+        display: flex;
+        justify-content: space-around;
         background-color: rgb(231, 227, 227);
         width: 100%;
         color: rgb(179, 27, 27);
@@ -183,13 +193,8 @@ button{
         box-shadow: -5px 5px 5px rgb(107, 105, 105);
         margin-bottom: 1rem;
     }
-
-    .precio{
-        background-color: rgb(179, 27, 27);
-        color: #f5c814;
-    }
  /********************************************* DESKTOP-VIEW ************************************/
-@media only screen and (min-width:600px)
+@media only screen and (min-width:840px)
     {
  /********************************************* INDEX ************************************/
         .left,.right{
@@ -233,6 +238,7 @@ button{
         .Encabezado{
             background-color: rgb(231, 227, 227);
             margin-bottom: auto;
+            height: 100%;
         }
         a{
             color: black;
@@ -256,6 +262,7 @@ button{
  /********************************************* TFOOTER ************************************/
         footer{
             text-transform: uppercase;
+            width: 100%;
             border-top: solid;
             text-align: center;
             background-color:rgb(179, 27, 27) ;
@@ -266,30 +273,49 @@ button{
         body{
             background-color: rgb(192, 185, 185);
         }
-/********************************************* TABLA ************************************/
-        tr td{
-            padding: 5px;
-            margin: 50%;
-            border-style: solid;
-        }
-        table{
-            width: 40rem;
-            display: inline-block;
-            margin: 0 15%;
-            padding: auto;
-        }
-        img{
-            width: 300px;
-            height: 70%;
-        }
-/********************************************* TABLA DINAMICA ************************************/
-        #tabla-comunYtabla-dinamica{
+/********************************************* LISTA ESPECIFICAIONES ************************************/
+
+        .autosEspecificaciones{
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
         }
-        #tabla-dinamica, #tabla-comun{
-            border: 0px;
+
+        .listaAuto{
+            background-color: rgb(179, 27, 27);
+            color: rgb(192, 185, 185);
+            border-radius: 50px;
         }
+
+/********************************************* TABLA DINAMICA ************************************/
+    .contenedor{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+    }
+    .autosDisponibles{
+        display: flex;
+        align-items: center;
+        width: 50%;
+    }
+    .carrito{
+        display: flex;
+        justify-content: flex-start;
+        width: 50%;
+        height: 200px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    table{
+        border-bottom: 5px black solid;
+    }
+    thead{
+        background-color: rgb(179, 27, 27);
+        color: rgb(192, 185, 185);
+    }
     /*ESPECIFICACIONES-BMW*/
         .Especificaciones-bmw ,.bmw, .titulo-bmw{
             display: flex;
